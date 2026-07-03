@@ -1,45 +1,74 @@
 # Refactor Cycling Club
 
-Static promo site for a fictional cycling club and training platform. The project is built with plain HTML, CSS, and vanilla JavaScript, so it can be opened locally or deployed to any static hosting without a build step.
+React/Vite version of the Refactor Cycling Club promo site. The original static HTML/CSS/vanilla JS site has been migrated to a Vite single-page React app while preserving the existing visual style, local assets, and legacy `.html` URLs.
 
 ## Live Demo
 
-GitHub Pages can serve this repository directly from the `main` branch:
+Current production site:
 
 `https://atlantik56.github.io/RefactorCC/`
 
+> This branch contains a React/Vite migration. To publish it on GitHub Pages, build the app and deploy the generated `dist` folder, or configure GitHub Pages deployment through a GitHub Actions workflow.
+
+## Tech Stack
+
+- React
+- Vite
+- Plain CSS, migrated from the original `styles.css`
+- Local image assets in `public/assets`
+
 ## Pages
 
-- `index.html` - landing page with hero, disciplines, route highlight, community quotes, and CTA form.
-- `routes.html` - route catalogue preview with difficulty and elevation metadata.
-- `community.html` - community story, values, schedule, and kit showcase.
-- `road.html`, `track.html`, `mtb.html`, `gravel.html`, `cyclocross.html`, `bmx.html` - discipline detail pages.
+The app keeps the old page URLs for compatibility:
+
+- `index.html` - landing page
+- `routes.html` - route catalogue
+- `community.html` - community page
+- `road.html`, `track.html`, `mtb.html`, `gravel.html`, `cyclocross.html`, `bmx.html` - discipline pages
+
+During build, `scripts/copy-routes.mjs` copies `dist/index.html` to each legacy `.html` route so direct links keep working on static hosting.
 
 ## Project Structure
 
 ```text
 .
-├── assets/              # Local showcase images
-├── main.js              # Shared components and page interactions
-├── styles.css           # Global layout, visual system, responsive styles
-└── *.html               # Static pages
+├── public/assets/        # Local images copied as-is by Vite
+├── scripts/              # Build helpers
+├── src/
+│   ├── main.jsx          # React entry, layout, effects, routing
+│   ├── pageContent.js    # Migrated page content and metadata
+│   └── styles.css        # Existing visual system and responsive styles
+├── index.html            # Vite HTML entry
+├── package.json
+└── vite.config.js
 ```
 
 ## Run Locally
 
-Open `index.html` in a browser, or start any small static server from the project folder:
-
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8000`.
+Then open the URL printed by Vite.
+
+## Build
+
+```bash
+npm run build
+```
+
+The production output is written to `dist/`.
+
+## GitHub Pages Deploy
+
+This branch includes `.github/workflows/deploy-react-vite.yml`. It builds the React/Vite app on pushes to `codex/react-vite-migration` and deploys the generated `dist/` folder with GitHub Actions.
 
 ## Notes
 
 - The join forms are client-side demos and do not submit data to a backend.
-- Page photos from Wikimedia Commons are stored locally in `assets/wikimedia/`.
-- For production, optimize large images in `assets/` to WebP/AVIF and add a real form handler.
+- Wikimedia Commons images are stored locally in `public/assets/wikimedia/`.
+- The carousel captions are rendered as text, not HTML, to avoid unsafe markup insertion.
 
 ## License
 
@@ -49,48 +78,75 @@ MIT. See `LICENSE`.
 
 # Refactor Cycling Club — русская версия
 
-Статический промо-сайт вымышленного велосипедного клуба и тренировочной платформы. Проект написан на обычных HTML, CSS и JavaScript без сборщика, поэтому его можно открыть локально в браузере или разместить на любом статическом хостинге.
+React/Vite-версия промо-сайта Refactor Cycling Club. Исходный статический сайт на HTML/CSS/vanilla JS перенесён в React-приложение, при этом сохранены текущий визуальный стиль, локальные изображения и старые URL вида `.html`.
 
 ## Демо
 
-Сайт опубликован через GitHub Pages:
+Текущий опубликованный сайт:
 
 `https://atlantik56.github.io/RefactorCC/`
 
+> Эта ветка содержит миграцию на React/Vite. Для публикации на GitHub Pages нужно собрать приложение и задеплоить папку `dist`, либо настроить деплой через GitHub Actions.
+
+## Стек
+
+- React
+- Vite
+- Обычный CSS, перенесённый из текущего `styles.css`
+- Локальные изображения в `public/assets`
+
 ## Страницы
 
-- `index.html` — главная страница с hero-блоком, дисциплинами, маршрутом недели, отзывами сообщества и CTA-формой.
-- `routes.html` — каталог маршрутов с километражом, набором высоты, покрытием и сложностью.
-- `community.html` — страница сообщества с ценностями клуба, расписанием и витриной формы.
-- `road.html`, `track.html`, `mtb.html`, `gravel.html`, `cyclocross.html`, `bmx.html` — страницы отдельных велодисциплин.
+Старые URL сохранены для совместимости:
+
+- `index.html` — главная страница
+- `routes.html` — каталог маршрутов
+- `community.html` — страница сообщества
+- `road.html`, `track.html`, `mtb.html`, `gravel.html`, `cyclocross.html`, `bmx.html` — страницы дисциплин
+
+При сборке `scripts/copy-routes.mjs` копирует `dist/index.html` в файлы старых `.html` маршрутов, чтобы прямые ссылки работали на статическом хостинге.
 
 ## Структура проекта
 
 ```text
 .
-├── assets/              # Локальные изображения для витрины
-├── main.js              # Общие компоненты и интерактив страниц
-├── styles.css           # Глобальные стили, сетки, адаптив и визуальная система
-└── *.html               # Статические страницы сайта
+├── public/assets/        # Локальные изображения, которые Vite копирует без обработки
+├── scripts/              # Вспомогательные build-скрипты
+├── src/
+│   ├── main.jsx          # React entry, layout, effects, routing
+│   ├── pageContent.js    # Перенесённый контент страниц и метаданные
+│   └── styles.css        # Визуальная система и адаптивные стили
+├── index.html            # HTML entry для Vite
+├── package.json
+└── vite.config.js
 ```
 
 ## Локальный запуск
 
-Можно просто открыть `index.html` в браузере. Альтернативно запустите небольшой статический сервер из папки проекта:
-
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-После этого откройте:
+После запуска откройте URL, который выведет Vite.
 
-`http://localhost:8000`
+## Сборка
 
-## Особенности
+```bash
+npm run build
+```
 
-- Формы присоединения работают как демо на клиенте и не отправляют данные на сервер.
-- Фотографии из Wikimedia Commons сохранены локально в `assets/wikimedia/`.
-- Для продакшена стоит оптимизировать крупные изображения в `assets/` в WebP/AVIF и подключить реальный обработчик формы.
+Готовая production-версия появится в папке `dist/`.
+
+## Деплой GitHub Pages
+
+Ветка содержит `.github/workflows/deploy-react-vite.yml`. Workflow собирает React/Vite-приложение при push в `codex/react-vite-migration` и публикует папку `dist/` через GitHub Actions.
+
+## Примечания
+
+- Формы присоединения работают как клиентское демо и не отправляют данные на сервер.
+- Изображения из Wikimedia Commons сохранены локально в `public/assets/wikimedia/`.
+- Подписи карусели выводятся как текст, а не HTML, чтобы избежать небезопасной вставки разметки.
 
 ## Лицензия
 
