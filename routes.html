@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Маршруты — Refactor Cycling Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="components.js"></script>
+</head>
+<body>
+
+<div id="race-progress"><span></span></div>
+
+<site-header page="routes"></site-header>
+
+<main>
+
+  <!-- DETAIL HERO -->
+  <section class="d-hero" style="min-height:66vh;">
+    <div class="d-hero-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cyclists_on_Buttertubs_-_geograph.org.uk_-_2418147.jpg" alt="Велосипедисты поднимаются по горному перевалу">
+    </div>
+    <div class="wrap d-hero-inner">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Главная</a> / <span>Маршруты</span>
+      </div>
+      <span class="idx-big mono">КАТАЛОГ · 340+ МАРШРУТОВ</span>
+      <h1>Маршруты</h1>
+      <p class="sub">Каждый маршрут размечен по километражу, набору высоты и покрытию — с честным профилем высот, без сюрпризов на последнем километре. От равнинных покатушек до горных серпантинов.</p>
+    </div>
+  </section>
+
+  <!-- SPEC STRIP -->
+  <section class="spec-strip circuit-grid">
+    <div class="wrap spec-grid">
+      <div class="spec"><div class="v">340+</div><div class="k">маршрутов в каталоге</div></div>
+      <div class="spec"><div class="v">12</div><div class="k">регионов</div></div>
+      <div class="spec"><div class="v">5</div><div class="k">типов покрытия</div></div>
+      <div class="spec"><div class="v">5</div><div class="k">уровней сложности</div></div>
+    </div>
+  </section>
+
+  <!-- ROUTES GRID -->
+  <section class="pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Проверенные маршруты</h2>
+        <p>Подборка от сообщества — с профилем высот, точками воды и рекомендациями по сезону.</p>
+      </div>
+
+      <div class="routes-grid stagger">
+
+        <div class="route-tile reveal">
+          <div class="photo">
+            <span class="diff-badge mono">●●●●○ Сложный</span>
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cyclists_on_Buttertubs_-_geograph.org.uk_-_2418147.jpg" alt="Велосипедисты на горном перевале Асфальтовый" loading="lazy">
+          </div>
+          <div class="body">
+            <h3>Перевал Асфальтовый</h3>
+            <p>Классический подъём для проверки формы: длинные пологие участки чередуются с резкими секциями у вершины.</p>
+            <svg aria-hidden="true" class="mini-profile in" viewBox="0 0 1000 90" preserveAspectRatio="none" style="margin-bottom:10px;">
+              <path stroke="url(#climbGradR)" d="M0,80 C 90,70 140,45 230,38 C 320,30 360,60 460,52 C 560,44 600,10 700,14 C 800,18 840,48 1000,26"/>
+            </svg>
+            <div class="route-meta">
+              <div><div class="v">14.2</div><div class="k">км</div></div>
+              <div><div class="v">612</div><div class="k">м набора</div></div>
+              <div><div class="v">7.4%</div><div class="k">ср. уклон</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-tile reveal">
+          <div class="photo">
+            <span class="diff-badge mono">●●○○○ Средний</span>
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cyclist_on_gravel_bike_descending_Eldridge_Grade.jpg" alt="Велосипедист на гравийной дороге среди леса" loading="lazy">
+          </div>
+          <div class="body">
+            <h3>Лесная петля Эльдридж</h3>
+            <p>Смешанное покрытие через сосновый лес: укатанный грунт, пара бродов и открытые виды на спуске.</p>
+            <div class="route-meta" style="border-top:none; padding-top:0; margin-top:6px;">
+              <div><div class="v">42</div><div class="k">км</div></div>
+              <div><div class="v">380</div><div class="k">м набора</div></div>
+              <div><div class="v">Грунт</div><div class="k">покрытие</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-tile reveal">
+          <div class="photo">
+            <span class="diff-badge mono">●○○○○ Лёгкий</span>
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_cyclist_rides_on_a_paved_square_surrounded_by_beautiful_historic_buildings_during_the_evening.jpg" alt="Велосипедист на вечерней городской площади" loading="lazy">
+          </div>
+          <div class="body">
+            <h3>Вечерний город</h3>
+            <p>Спокойный кольцевой маршрут по историческому центру — отличный вариант для восстановительной поездки.</p>
+            <div class="route-meta" style="border-top:none; padding-top:0; margin-top:6px;">
+              <div><div class="v">18</div><div class="k">км</div></div>
+              <div><div class="v">60</div><div class="k">м набора</div></div>
+              <div><div class="v">Асфальт</div><div class="k">покрытие</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-tile reveal">
+          <div class="photo">
+            <span class="diff-badge mono">●●●○○ Средне-сложный</span>
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cycle_sunset_road_photography.jpg" alt="Велосипедист на дороге на закате" loading="lazy">
+          </div>
+          <div class="body">
+            <h3>Закатное шоссе</h3>
+            <p>Длинный равнинный отрезок с плавными холмами — популярен для темповых вечерних заездов летом.</p>
+            <div class="route-meta" style="border-top:none; padding-top:0; margin-top:6px;">
+              <div><div class="v">65</div><div class="k">км</div></div>
+              <div><div class="v">240</div><div class="k">м набора</div></div>
+              <div><div class="v">Асфальт</div><div class="k">покрытие</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE MAP -->
+  <section class="pad" style="background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap route">
+      <div class="route-side reveal">
+        <h2>Как мы размечаем маршруты</h2>
+        <p>Каждый маршрут проезжает и проверяет вручную кто-то из сообщества: фиксируем точный профиль высот, отмечаем опасные участки и сезонные ограничения.</p>
+        <p>На каждой странице маршрута — интерактивный профиль подъёма с цветовой кодировкой по крутизне, точки для воды и еды, а также рекомендации по типу покрышек.</p>
+        <a href="index.html#join" class="btn btn-primary">Получить доступ к каталогу
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="route-card reveal">
+        <span class="eyebrow">Легенда уклона</span>
+        <div style="margin-top:20px; display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:12px;"><i style="width:16px;height:16px;border-radius:4px;background:var(--green);display:block;"></i><span style="color:var(--text-dim); font-size:14px;">0–4% — легко держать разговорный темп</span></div>
+          <div style="display:flex; align-items:center; gap:12px;"><i style="width:16px;height:16px;border-radius:4px;background:var(--yellow);display:block;"></i><span style="color:var(--text-dim); font-size:14px;">4–7% — стабильная работа, нужен ритм</span></div>
+          <div style="display:flex; align-items:center; gap:12px;"><i style="width:16px;height:16px;border-radius:4px;background:var(--orange);display:block;"></i><span style="color:var(--text-dim); font-size:14px;">7–10% — ощутимо, выбирайте передачу заранее</span></div>
+          <div style="display:flex; align-items:center; gap:12px;"><i style="width:16px;height:16px;border-radius:4px;background:var(--red);display:block;"></i><span style="color:var(--text-dim); font-size:14px;">10%+ — стенка, темп по ощущениям</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta pad circuit-grid" id="join">
+    <div class="wrap">
+      <span class="eyebrow" style="justify-content:center;">Каталог открыт</span>
+      <h2 style="margin-top:16px;">Найдите свой следующий маршрут</h2>
+      <p>Оставьте почту — пришлём подборку маршрутов рядом с вами и доступ к полному каталогу.</p>
+      <form class="cta-form" id="joinForm">
+        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+        <button type="submit" class="btn btn-primary">Присоединиться</button>
+      </form>
+      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+    </div>
+  </section>
+
+</main>
+
+<site-footer></site-footer>
+
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;">
+  <defs>
+    <linearGradient id="climbGradR" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#6fd07a"/>
+      <stop offset="22%" stop-color="#e4ff3c"/>
+      <stop offset="45%" stop-color="#ff9a3c"/>
+      <stop offset="62%" stop-color="#ff4d4d"/>
+      <stop offset="80%" stop-color="#ff9a3c"/>
+      <stop offset="100%" stop-color="#6fd07a"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<script src="script.js"></script>
+</body>
+</html>

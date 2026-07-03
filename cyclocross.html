@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Циклокросс — Refactor Cycling Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="components.js"></script>
+</head>
+<body>
+
+<div id="race-progress"><span></span></div>
+
+<site-header page="disciplines"></site-header>
+
+<main>
+
+  <!-- DETAIL HERO -->
+  <section class="d-hero">
+    <div class="d-hero-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Toronto_Cyclocross_2010_(5090881203).jpg" alt="Гонщик на трассе циклокросса">
+    </div>
+    <div class="wrap d-hero-inner">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>Циклокросс</span>
+      </div>
+      <span class="idx-big mono">D—05 · ДИСЦИПЛИНА</span>
+      <h1>Циклокросс</h1>
+      <p class="sub">Короткие круги, грязь и барьеры: взрывная выносливость и техника переноски байка поздней осенью и зимой.</p>
+      <div class="tags">
+        <span>Грязь</span>
+        <span>Барьеры</span>
+        <span>Короткие круги</span>
+        <span>30–60 мин</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC STRIP -->
+  <section class="spec-strip circuit-grid">
+    <div class="wrap spec-grid">
+      <div class="spec"><div class="v">18–26</div><div class="k">км/ч в среднем</div></div>
+      <div class="spec"><div class="v">30–60</div><div class="k">мин гонка</div></div>
+      <div class="spec"><div class="v">7.5–9</div><div class="k">кг вес байка</div></div>
+      <div class="spec"><div class="v">700×33c</div><div class="k">типовые покрышки</div></div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="pad">
+    <div class="wrap d-content">
+      <div class="d-main">
+        <h2 class="reveal">Что это за дисциплина</h2>
+        <p class="reveal">Циклокросс — гонки по коротким кругам (2.5–3.5 км) с искусственными и естественными препятствиями: барьерами, песком, лестницами, где приходится спрыгивать и нести байк на плече. Сезон приходится на осень и зиму, трассы часто раскисшие от дождя.</p>
+        <p class="reveal">Дисциплина требует не только выносливости, но и специфической техники: быстрого спешивания, переноски байка, работы в грязи и на скользких поворотах.</p>
+
+        <h2 class="reveal">С чего начать</h2>
+        <ul class="reveal">
+          <li>Начните с базового шоссейного или гравел-байка с покрышками пошире, прежде чем брать выделенный циклокроссовый</li>
+          <li>Отрабатывайте технику спешивания и посадки на скорости на пустой площадке</li>
+          <li>Тренируйте перенос байка через плечо — это экономит секунды на барьерах</li>
+          <li>Готовьтесь к работе в грязи: низкое давление в шинах и уверенное торможение</li>
+        </ul>
+
+        <h2 class="reveal">Тренировочный подход</h2>
+        <p class="reveal">Гонки короткие и интенсивные, поэтому тренировки строятся вокруг высокоинтенсивных интервалов и силовой выносливости, плюс отдельные сессии по технике барьеров и спешивания.</p>
+      </div>
+
+      <aside class="d-sidebar reveal">
+        <h3>Что понадобится</h3>
+        <ul class="gear-list">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Циклокроссовый велосипед</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Покрышки с агрессивным протектором</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Запасное колесо или сервис в яме</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Перчатки и грязезащитная одежда</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Второй комплект формы на смену</li>
+        </ul>
+        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- OTHER DISCIPLINES -->
+  <section class="pad d-others">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Другие дисциплины</h2>
+        <p>Попробуйте себя в другом формате.</p>
+      </div>
+      <div class="d-others-grid">
+        <a class="d-other" href="road.html"><span>D—01</span>Шоссе</a>
+        <a class="d-other" href="track.html"><span>D—02</span>Трек</a>
+        <a class="d-other" href="mtb.html"><span>D—03</span>Маунтинбайк</a>
+        <a class="d-other" href="gravel.html"><span>D—04</span>Гравел</a>
+        <a class="d-other" href="bmx.html"><span>D—06</span>BMX</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta pad circuit-grid" id="join">
+    <div class="wrap">
+      <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
+      <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
+      <p>Оставьте почту — пришлём вводный план по циклокроссу и календарь ближайших стартов.</p>
+      <form class="cta-form" id="joinForm">
+        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+        <button type="submit" class="btn btn-primary">Присоединиться</button>
+      </form>
+      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+    </div>
+  </section>
+
+</main>
+
+<site-footer></site-footer>
+
+<script src="script.js"></script>
+</body>
+</html>

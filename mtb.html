@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Маунтинбайк — Refactor Cycling Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="components.js"></script>
+</head>
+<body>
+
+<div id="race-progress"><span></span></div>
+
+<site-header page="disciplines"></site-header>
+
+<main>
+
+  <!-- DETAIL HERO -->
+  <section class="d-hero">
+    <div class="d-hero-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cross_country_biker.jpg" alt="Райдер на маунтинбайке на лесной тропе">
+    </div>
+    <div class="wrap d-hero-inner">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>Маунтинбайк</span>
+      </div>
+      <span class="idx-big mono">D—03 · ДИСЦИПЛИНА</span>
+      <h1>Маунтинбайк</h1>
+      <p class="sub">Кросс-кантри и эндуро по лесным и горным тропам: техника, контроль скорости на спусках и работа с рельефом.</p>
+      <div class="tags">
+        <span>Грунт</span>
+        <span>Техника</span>
+        <span>Подвеска</span>
+        <span>20–80 км</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC STRIP -->
+  <section class="spec-strip circuit-grid">
+    <div class="wrap spec-grid">
+      <div class="spec"><div class="v">12–35</div><div class="k">км/ч по трейлу</div></div>
+      <div class="spec"><div class="v">20–80</div><div class="k">км за выезд</div></div>
+      <div class="spec"><div class="v">11–14</div><div class="k">кг вес байка</div></div>
+      <div class="spec"><div class="v">100–170</div><div class="k">мм ход подвески</div></div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="pad">
+    <div class="wrap d-content">
+      <div class="d-main">
+        <h2 class="reveal">Что это за дисциплина</h2>
+        <p class="reveal">Маунтинбайк объединяет несколько форматов: кросс-кантри (XC) с акцентом на выносливость и подъёмы, и эндуро с упором на техничные спуски. Байк оснащён амортизационной вилкой, часто и задней подвеской, широкими покрышками для сцепления на грунте.</p>
+        <p class="reveal">Ключевые навыки — чтение линии на тропе, работа с весом тела на спусках и подъёмах, торможение в повороте и преодоление препятствий: корней, камней, бродов.</p>
+
+        <h2 class="reveal">С чего начать</h2>
+        <ul class="reveal">
+          <li>Подберите байк под формат: XC-хардтейл для скорости или двухподвес для спусков</li>
+          <li>Начните с зелёных и синих трасс, постепенно переходя на технично сложные</li>
+          <li>Освойте базовую посадку: локти в стороны, вес на педалях на спусках</li>
+          <li>Тренируйте баланс на низкой скорости — это основа контроля на тропе</li>
+        </ul>
+
+        <h2 class="reveal">Тренировочный подход</h2>
+        <p class="reveal">Тренировки сочетают аэробные выезды по пересечённой местности с отдельными сессиями по технике: работа с обратной связью тренера на конкретных элементах трассы — корнях, камнях, бермах.</p>
+      </div>
+
+      <aside class="d-sidebar reveal">
+        <h3>Что понадобится</h3>
+        <ul class="gear-list">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Маунтинбайк (хардтейл или двухподвес)</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Шлем с расширенным покрытием затылка</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Перчатки и наколенники</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Контактные или платформенные педали</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Гидратор или флягодержатель</li>
+        </ul>
+        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- OTHER DISCIPLINES -->
+  <section class="pad d-others">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Другие дисциплины</h2>
+        <p>Попробуйте себя в другом формате.</p>
+      </div>
+      <div class="d-others-grid">
+        <a class="d-other" href="road.html"><span>D—01</span>Шоссе</a>
+        <a class="d-other" href="track.html"><span>D—02</span>Трек</a>
+        <a class="d-other" href="gravel.html"><span>D—04</span>Гравел</a>
+        <a class="d-other" href="cyclocross.html"><span>D—05</span>Циклокросс</a>
+        <a class="d-other" href="bmx.html"><span>D—06</span>BMX</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta pad circuit-grid" id="join">
+    <div class="wrap">
+      <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
+      <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
+      <p>Оставьте почту — пришлём подборку трейлов рядом с вами и вводный план по технике.</p>
+      <form class="cta-form" id="joinForm">
+        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+        <button type="submit" class="btn btn-primary">Присоединиться</button>
+      </form>
+      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+    </div>
+  </section>
+
+</main>
+
+<site-footer></site-footer>
+
+<script src="script.js"></script>
+</body>
+</html>
