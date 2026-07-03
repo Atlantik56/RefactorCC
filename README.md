@@ -5,75 +5,124 @@
   <a href="README.ru.md"><img alt="Русский" src="https://img.shields.io/badge/README-Русский-dc2626?style=for-the-badge"></a>
 </p>
 
-React/Vite version of the Refactor Cycling Club promo site. The original static HTML/CSS/vanilla JS site has been migrated to a Vite single-page React app while preserving the existing visual style, local assets, and legacy `.html` URLs.
+Refactor Cycling Club is a React/Vite promo site for a cycling club. The project was migrated from static HTML/CSS/vanilla JS to a Vite-powered React app while keeping the original visual direction, local assets, and legacy `.html` page URLs.
 
-## Live Demo
+## Current Status
 
-Current production site:
-
-`https://atlantik56.github.io/RefactorCC/`
-
-> The repository uses GitHub Actions to build the React/Vite app and deploy the generated `dist` folder to GitHub Pages.
+- Main branch: `main`
+- Production: `https://atlantik56.github.io/RefactorCC/`
+- Deployment: GitHub Actions to GitHub Pages
+- Frontend: React single-page app with static route compatibility
+- Backend: not included yet; join forms are client-side demos
+- Assets: all site images are stored locally in `public/assets`
 
 ## Tech Stack
 
-- React
-- Vite
-- Plain CSS, migrated from the original `styles.css`
-- Local image assets in `public/assets`
+- React 19
+- Vite 7
+- Plain CSS
+- pnpm
+- GitHub Actions
+- GitHub Pages
 
 ## Pages
 
-The app keeps the old page URLs for compatibility:
+The app is rendered by React, but old direct `.html` links are preserved for static hosting:
 
 - `index.html` - landing page
 - `routes.html` - route catalogue
 - `community.html` - community page
-- `road.html`, `track.html`, `mtb.html`, `gravel.html`, `cyclocross.html`, `bmx.html` - discipline pages
+- `road.html` - road cycling
+- `track.html` - track cycling
+- `mtb.html` - mountain bike
+- `gravel.html` - gravel
+- `cyclocross.html` - cyclocross
+- `bmx.html` - BMX
 
-During build, `scripts/copy-routes.mjs` copies `dist/index.html` to each legacy `.html` route so direct links keep working on static hosting.
+During production build, `scripts/copy-routes.mjs` copies `dist/index.html` to every legacy `.html` route so direct links work on GitHub Pages.
 
 ## Project Structure
 
 ```text
 .
-├── public/assets/        # Local images copied as-is by Vite
-├── scripts/              # Build helpers
+├── .github/workflows/
+│   └── deploy-react-vite.yml  # GitHub Pages deployment
+├── public/assets/             # Local images copied by Vite
+├── scripts/
+│   └── copy-routes.mjs        # Legacy .html route support
 ├── src/
-│   ├── main.jsx          # React entry, layout, effects, routing
-│   ├── pageContent.js    # Migrated page content and metadata
-│   └── styles.css        # Existing visual system and responsive styles
-├── index.html            # Vite HTML entry
+│   ├── main.jsx               # React entry, layout, effects, routing
+│   ├── pageContent.js         # Page content and metadata
+│   └── styles.css             # Visual system and responsive styles
+├── index.html                 # Vite HTML entry
 ├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.md
+├── README.ru.md
 └── vite.config.js
 ```
 
 ## Run Locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
-Then open the URL printed by Vite.
+Then open the local URL printed by Vite.
 
 ## Build
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 The production output is written to `dist/`.
 
+## Preview Production Build
+
+```bash
+pnpm run preview
+```
+
+## Optimization
+
+The production build is configured in `vite.config.js`:
+
+- JS and CSS are minified with esbuild
+- CSS code splitting is enabled
+- source maps are disabled for production
+- React and React DOM are split into a separate chunk
+- assets are kept as files instead of being inlined
+- kit showcase images were compressed and normalized to practical display dimensions
+
+Current local image assets are stored in `public/assets`, including Wikimedia-sourced images in `public/assets/wikimedia`.
+
 ## GitHub Pages Deploy
 
-This repository includes `.github/workflows/deploy-react-vite.yml`. It builds the React/Vite app on pushes to `main` and deploys the generated `dist/` folder with GitHub Actions.
+Deployment is handled by `.github/workflows/deploy-react-vite.yml`.
 
-## Notes
+On push to `main`, the workflow:
 
-- The join forms are client-side demos and do not submit data to a backend.
-- Wikimedia Commons images are stored locally in `public/assets/wikimedia/`.
-- The carousel captions are rendered as text, not HTML, to avoid unsafe markup insertion.
+1. installs dependencies with pnpm,
+2. builds the Vite app,
+3. uploads `dist/` as a Pages artifact,
+4. deploys it to GitHub Pages.
+
+## Security Notes
+
+- Carousel captions are rendered as text, not HTML, to avoid unsafe markup insertion.
+- Scroll progress calculation uses `document.scrollingElement` with a zero-division guard.
+- Header/footer HTML is now part of the React app rather than separate runtime template files.
+
+## Roadmap Ideas
+
+- real backend API for join forms
+- database-backed routes, events, and members
+- admin panel for editing site content
+- VPS deployment with Nginx, Docker, PostgreSQL, and SSL
+- full in-site language switching for the public website
 
 ## License
 
