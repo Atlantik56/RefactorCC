@@ -1,4 +1,11 @@
+<a id="english"></a>
+
 # Refactor Cycling Club
+
+<p align="center">
+  <a href="#english"><img alt="English" src="https://img.shields.io/badge/README-English-2563eb?style=for-the-badge"></a>
+  <a href="#russian"><img alt="Русский" src="https://img.shields.io/badge/README-Русский-dc2626?style=for-the-badge"></a>
+</p>
 
 React/Vite version of the Refactor Cycling Club promo site. The original static HTML/CSS/vanilla JS site has been migrated to a Vite single-page React app while preserving the existing visual style, local assets, and legacy `.html` URLs.
 
@@ -62,7 +69,7 @@ The production output is written to `dist/`.
 
 ## GitHub Pages Deploy
 
-This branch includes `.github/workflows/deploy-react-vite.yml`. It builds the React/Vite app on pushes to `codex/react-vite-migration` and deploys the generated `dist/` folder with GitHub Actions.
+This repository includes `.github/workflows/deploy-react-vite.yml`. It builds the React/Vite app on pushes to `main` and deploys the generated `dist/` folder with GitHub Actions.
 
 ## Notes
 
@@ -76,7 +83,14 @@ MIT. See `LICENSE`.
 
 ---
 
+<a id="russian"></a>
+
 # Refactor Cycling Club — русская версия
+
+<p align="center">
+  <a href="#english"><img alt="English" src="https://img.shields.io/badge/README-English-2563eb?style=for-the-badge"></a>
+  <a href="#russian"><img alt="Русский" src="https://img.shields.io/badge/README-Русский-dc2626?style=for-the-badge"></a>
+</p>
 
 React/Vite-версия промо-сайта Refactor Cycling Club. Исходный статический сайт на HTML/CSS/vanilla JS перенесён в React-приложение, при этом сохранены текущий визуальный стиль, локальные изображения и старые URL вида `.html`.
 
@@ -140,7 +154,7 @@ npm run build
 
 ## Деплой GitHub Pages
 
-Ветка содержит `.github/workflows/deploy-react-vite.yml`. Workflow собирает React/Vite-приложение при push в `codex/react-vite-migration` и публикует папку `dist/` через GitHub Actions.
+Репозиторий содержит `.github/workflows/deploy-react-vite.yml`. Workflow собирает React/Vite-приложение при push в `main` и публикует папку `dist/` через GitHub Actions.
 
 ## Примечания
 
