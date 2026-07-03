@@ -130,9 +130,10 @@
   var progressBar = document.querySelector('#race-progress span');
   function updateProgress(){
     if(!progressBar) return;
-    var h = document.documentElement;
-    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-    progressBar.style.width = (scrolled || 0) + '%';
+    var scrollEl = document.scrollingElement || document.documentElement;
+    var denom = scrollEl.scrollHeight - scrollEl.clientHeight;
+    var scrolled = denom > 0 ? (scrollEl.scrollTop / denom) * 100 : 0;
+    progressBar.style.width = scrolled + '%';
   }
 
   // ---- Header solid on scroll ----
@@ -274,7 +275,7 @@
       if(counter){ counter.textContent = (index + 1) + ' / ' + total; }
       if(captionEl){
         var cap = slides[index].getAttribute('data-caption');
-        if(cap){ captionEl.innerHTML = cap; }
+        if(cap){ captionEl.textContent = cap; }
       }
     }
     function go(i){
