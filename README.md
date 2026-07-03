@@ -38,7 +38,7 @@ Then open `http://localhost:8000`.
 ## Notes
 
 - The join forms are client-side demos and do not submit data to a backend.
-- Some page photos are loaded from Wikimedia Commons URLs.
+- Page photos from Wikimedia Commons are stored locally in `assets/wikimedia/`.
 - For production, optimize large images in `assets/` to WebP/AVIF and add a real form handler.
 
 ## License
@@ -89,7 +89,7 @@ python -m http.server 8000
 ## Особенности
 
 - Формы присоединения работают как демо на клиенте и не отправляют данные на сервер.
-- Часть фотографий загружается по ссылкам Wikimedia Commons.
+- Фотографии из Wikimedia Commons сохранены локально в `assets/wikimedia/`.
 - Для продакшена стоит оптимизировать крупные изображения в `assets/` в WebP/AVIF и подключить реальный обработчик формы.
 
 ## Лицензия
