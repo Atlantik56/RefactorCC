@@ -1,10 +1,8 @@
-<a id="english"></a>
-
 # Refactor Cycling Club
 
 <p align="center">
-  <a href="#english"><img alt="English" src="https://img.shields.io/badge/README-English-2563eb?style=for-the-badge"></a>
-  <a href="#russian"><img alt="Русский" src="https://img.shields.io/badge/README-Русский-dc2626?style=for-the-badge"></a>
+  <a href="README.md"><img alt="English" src="https://img.shields.io/badge/README-English-2563eb?style=for-the-badge"></a>
+  <a href="README.ru.md"><img alt="Русский" src="https://img.shields.io/badge/README-Русский-dc2626?style=for-the-badge"></a>
 </p>
 
 React/Vite version of the Refactor Cycling Club promo site. The original static HTML/CSS/vanilla JS site has been migrated to a Vite single-page React app while preserving the existing visual style, local assets, and legacy `.html` URLs.
@@ -15,7 +13,7 @@ Current production site:
 
 `https://atlantik56.github.io/RefactorCC/`
 
-> This branch contains a React/Vite migration. To publish it on GitHub Pages, build the app and deploy the generated `dist` folder, or configure GitHub Pages deployment through a GitHub Actions workflow.
+> The repository uses GitHub Actions to build the React/Vite app and deploy the generated `dist` folder to GitHub Pages.
 
 ## Tech Stack
 
@@ -80,88 +78,3 @@ This repository includes `.github/workflows/deploy-react-vite.yml`. It builds th
 ## License
 
 MIT. See `LICENSE`.
-
----
-
-<a id="russian"></a>
-
-# Refactor Cycling Club — русская версия
-
-<p align="center">
-  <a href="#english"><img alt="English" src="https://img.shields.io/badge/README-English-2563eb?style=for-the-badge"></a>
-  <a href="#russian"><img alt="Русский" src="https://img.shields.io/badge/README-Русский-dc2626?style=for-the-badge"></a>
-</p>
-
-React/Vite-версия промо-сайта Refactor Cycling Club. Исходный статический сайт на HTML/CSS/vanilla JS перенесён в React-приложение, при этом сохранены текущий визуальный стиль, локальные изображения и старые URL вида `.html`.
-
-## Демо
-
-Текущий опубликованный сайт:
-
-`https://atlantik56.github.io/RefactorCC/`
-
-> Эта ветка содержит миграцию на React/Vite. Для публикации на GitHub Pages нужно собрать приложение и задеплоить папку `dist`, либо настроить деплой через GitHub Actions.
-
-## Стек
-
-- React
-- Vite
-- Обычный CSS, перенесённый из текущего `styles.css`
-- Локальные изображения в `public/assets`
-
-## Страницы
-
-Старые URL сохранены для совместимости:
-
-- `index.html` — главная страница
-- `routes.html` — каталог маршрутов
-- `community.html` — страница сообщества
-- `road.html`, `track.html`, `mtb.html`, `gravel.html`, `cyclocross.html`, `bmx.html` — страницы дисциплин
-
-При сборке `scripts/copy-routes.mjs` копирует `dist/index.html` в файлы старых `.html` маршрутов, чтобы прямые ссылки работали на статическом хостинге.
-
-## Структура проекта
-
-```text
-.
-├── public/assets/        # Локальные изображения, которые Vite копирует без обработки
-├── scripts/              # Вспомогательные build-скрипты
-├── src/
-│   ├── main.jsx          # React entry, layout, effects, routing
-│   ├── pageContent.js    # Перенесённый контент страниц и метаданные
-│   └── styles.css        # Визуальная система и адаптивные стили
-├── index.html            # HTML entry для Vite
-├── package.json
-└── vite.config.js
-```
-
-## Локальный запуск
-
-```bash
-npm install
-npm run dev
-```
-
-После запуска откройте URL, который выведет Vite.
-
-## Сборка
-
-```bash
-npm run build
-```
-
-Готовая production-версия появится в папке `dist/`.
-
-## Деплой GitHub Pages
-
-Репозиторий содержит `.github/workflows/deploy-react-vite.yml`. Workflow собирает React/Vite-приложение при push в `main` и публикует папку `dist/` через GitHub Actions.
-
-## Примечания
-
-- Формы присоединения работают как клиентское демо и не отправляют данные на сервер.
-- Изображения из Wikimedia Commons сохранены локально в `public/assets/wikimedia/`.
-- Подписи карусели выводятся как текст, а не HTML, чтобы избежать небезопасной вставки разметки.
-
-## Лицензия
-
-MIT. Подробности в файле `LICENSE`.
