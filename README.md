@@ -60,6 +60,10 @@ npm run build
 
 The production output is written to `dist/`.
 
+## GitHub Pages Deploy
+
+This branch includes `.github/workflows/deploy-react-vite.yml`. It builds the React/Vite app on pushes to `codex/react-vite-migration` and deploys the generated `dist/` folder with GitHub Actions.
+
 ## Notes
 
 - The join forms are client-side demos and do not submit data to a backend.
@@ -133,6 +137,10 @@ npm run build
 ```
 
 Готовая production-версия появится в папке `dist/`.
+
+## Деплой GitHub Pages
+
+Ветка содержит `.github/workflows/deploy-react-vite.yml`. Workflow собирает React/Vite-приложение при push в `codex/react-vite-migration` и публикует папку `dist/` через GitHub Actions.
 
 ## Примечания
 
