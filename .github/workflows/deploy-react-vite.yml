@@ -3,6 +3,7 @@ name: Deploy React/Vite branch to GitHub Pages
 on:
   push:
     branches:
+      - main
       - codex/react-vite-migration
   workflow_dispatch:
 
