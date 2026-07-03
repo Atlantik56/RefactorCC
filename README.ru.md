@@ -1,4 +1,4 @@
-# Refactor Cycling Club — русская версия
+# Refactor Cycling Club — Русский
 
 <p align="center">
   <a href="README.md"><img alt="English" src="https://img.shields.io/badge/README-English-2563eb?style=for-the-badge"></a>
