@@ -183,6 +183,44 @@ function Footer() {
   );
 }
 
+function CircuitTraceLayer() {
+  return (
+    <div className="circuit-trace-layer" aria-hidden="true">
+      <svg className="circuit-traces circuit-traces-left" viewBox="0 0 260 1200" preserveAspectRatio="none" focusable="false">
+        <path className="circuit-track track-a" d="M26 0V110H92V224H48V354H126V496H72V640H154V774H106V898H178V1050H132V1200" />
+        <path className="circuit-track track-b" d="M146 0V72H206V190H164V314H226V458H170V590H228V732H188V842H232V1008H196V1200" />
+        <path className="circuit-branch branch-a" d="M48 354H18M126 496H210M72 640H30M178 1050H236" />
+        <g className="circuit-pads">
+          <circle cx="26" cy="110" r="5" />
+          <circle cx="92" cy="224" r="4" />
+          <circle cx="126" cy="496" r="5" />
+          <circle cx="154" cy="774" r="4" />
+          <circle cx="178" cy="1050" r="5" />
+          <circle cx="206" cy="190" r="4" />
+          <circle cx="226" cy="458" r="5" />
+          <circle cx="232" cy="842" r="4" />
+        </g>
+      </svg>
+      <svg className="circuit-traces circuit-traces-right" viewBox="0 0 260 1200" preserveAspectRatio="none" focusable="false">
+        <path className="circuit-track track-c" d="M218 0V96H164V216H214V338H128V488H190V616H104V762H158V884H82V1018H128V1200" />
+        <path className="circuit-track track-d" d="M92 0V150H42V282H96V424H34V546H88V696H28V830H70V964H32V1200" />
+        <path className="circuit-branch branch-b" d="M214 338H242M128 488H54M104 762H230M82 1018H18" />
+        <g className="circuit-pads">
+          <circle cx="218" cy="96" r="5" />
+          <circle cx="164" cy="216" r="4" />
+          <circle cx="128" cy="488" r="5" />
+          <circle cx="104" cy="762" r="4" />
+          <circle cx="82" cy="1018" r="5" />
+          <circle cx="42" cy="282" r="4" />
+          <circle cx="34" cy="546" r="5" />
+          <circle cx="70" cy="964" r="4" />
+        </g>
+      </svg>
+      <span className="circuit-spark" />
+    </div>
+  );
+}
+
 function useDocumentMeta(page) {
   useEffect(() => {
     document.title = page.title;
@@ -199,14 +237,16 @@ function useDocumentMeta(page) {
 function usePageEffects(pageKey) {
   useEffect(() => {
     const progressBar = document.querySelector('#race-progress span');
+    const root = document.documentElement;
     const header = document.getElementById('site-header');
 
     const updateProgress = () => {
-      if (!progressBar) return;
       const scrollEl = document.scrollingElement || document.documentElement;
       const denom = scrollEl.scrollHeight - scrollEl.clientHeight;
-      const scrolled = denom > 0 ? (scrollEl.scrollTop / denom) * 100 : 0;
-      progressBar.style.width = `${scrolled}%`;
+      const scrolled = denom > 0 ? scrollEl.scrollTop / denom : 0;
+      root.style.setProperty('--scroll-progress', scrolled.toFixed(4));
+      root.style.setProperty('--circuit-spark-y', `${7 + scrolled * 86}vh`);
+      if (progressBar) progressBar.style.width = `${scrolled * 100}%`;
     };
 
     const updateHeader = () => {
@@ -226,6 +266,7 @@ function usePageEffects(pageKey) {
     };
 
     document.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     updateProgress();
     updateHeader();
 
@@ -350,6 +391,9 @@ function usePageEffects(pageKey) {
 
     return () => {
       document.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      root.style.removeProperty('--scroll-progress');
+      root.style.removeProperty('--circuit-spark-y');
       revealObserver.disconnect();
       counterObserver.disconnect();
       formHandlers.forEach(([form, handler]) => form.removeEventListener('submit', handler));
@@ -371,6 +415,7 @@ function App() {
   return (
     <>
       <div id="race-progress"><span /></div>
+      <CircuitTraceLayer />
       <Header activePage={page.nav} />
       <div dangerouslySetInnerHTML={{ __html: page.html }} />
       <Footer />
