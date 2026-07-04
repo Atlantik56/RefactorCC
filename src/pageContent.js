@@ -1294,17 +1294,160 @@ export const pages = {
 
 </main>`,
   },
+  news: {
+    key: 'news',
+    nav: 'news',
+    title: `Новости — Refactor Cycling Club`,
+    description: `Новости Refactor Cycling Club: заезды, тренировки, маршруты недели и обновления сообщества.`,
+    ogTitle: `Новости — Refactor Cycling Club`,
+    ogDescription: `Лента новостей Refactor Cycling Club: события, маршруты и обновления сезона 2026.`,
+    html: `<main>
+
+  <section class="d-hero">
+    <div class="d-hero-photo">
+      <img src="assets/wikimedia/cyclists-at-blacksmiths-coffee-shop-belsay-geograph-org-uk-3504052.jpg" alt="Велосипедисты у кофейни после групповой поездки">
+    </div>
+    <div class="wrap d-hero-inner">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Главная</a> / <span>Новости</span>
+      </div>
+      <span class="idx-big mono">NEWS · СЕЗОН 2026</span>
+      <h1>Новости клуба</h1>
+      <p class="sub">Заезды, открытые тренировки, маршруты недели и короткие обновления сообщества.</p>
+      <div class="tags">
+        <span>События</span>
+        <span>Маршруты</span>
+        <span>Тренировки</span>
+        <span>Комьюнити</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Лента обновлений</h2>
+        <p>Пока новости хранятся статически внутри проекта. Структура страницы подготовлена так, чтобы позже заменить источник на API.</p>
+      </div>
+      <div class="routes-list stagger">
+        <article class="route-row reveal">
+          <div>
+            <span class="idx mono">04.07.2026</span>
+            <h3>Открыт летний блок групповых тренировок</h3>
+            <p>Запускаем регулярные шоссейные и гравел-заезды по будням и длинную endurance-сессию по воскресеньям.</p>
+          </div>
+          <span class="tag">Training</span>
+        </article>
+        <article class="route-row reveal">
+          <div>
+            <span class="idx mono">30.06.2026</span>
+            <h3>Маршрут недели: Перевал Асфальтовый</h3>
+            <p>Классический подъём для проверки формы теперь доступен в каталоге с профилем высоты и оценкой сложности.</p>
+          </div>
+          <span class="tag">Route</span>
+        </article>
+        <article class="route-row reveal">
+          <div>
+            <span class="idx mono">24.06.2026</span>
+            <h3>Комьюнити-день для новичков</h3>
+            <p>Знакомство с клубом, разбор посадки, безопасная езда в группе и первая спокойная покатушка.</p>
+          </div>
+          <span class="tag">Community</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>`,
+  },
+  trainingPlans: {
+    key: 'trainingPlans',
+    nav: 'trainingPlans',
+    title: `Планы тренировок — Refactor Cycling Club`,
+    description: `Планы тренировок Refactor Cycling Club для шоссейного велоспорта: новичок и средний уровень, станок и улица.`,
+    ogTitle: `Планы тренировок — Refactor Cycling Club`,
+    ogDescription: `Статические тренировочные планы для шоссе: варианты для станка и улицы без сбора персональных данных.`,
+    html: `<main>
+
+  <section class="d-hero">
+    <div class="d-hero-photo">
+      <img src="assets/wikimedia/cycle-sunset-road-photography.jpg" alt="Велосипедист едет по дороге на закате">
+    </div>
+    <div class="wrap d-hero-inner">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Главная</a> / <span>Планы тренировок</span>
+      </div>
+      <span class="idx-big mono">TRAINING · ROAD</span>
+      <h1>Планы тренировок</h1>
+      <p class="sub">Базовые программы для шоссейного велоспорта: станок по процентам FTP и улица по ощущениям или пульсу.</p>
+      <div class="tags">
+        <span>Новичок</span>
+        <span>Средний уровень</span>
+        <span>Станок</span>
+        <span>Улица</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad">
+    <div class="wrap d-content">
+      <div class="d-main">
+        <h2 class="reveal">Новичок · станок</h2>
+        <p class="reveal">3 тренировки в неделю: лёгкая выносливость 55–65% FTP, каденс-дриллы и короткая темповая работа до 80% FTP.</p>
+        <ul class="reveal">
+          <li>Недели 1–2: адаптация и ровная техника педалирования</li>
+          <li>Недели 3–4: интервалы 3–5 минут в зоне tempo</li>
+          <li>Неделя 5: разгрузка и контрольное ощущение темпа</li>
+        </ul>
+
+        <h2 class="reveal">Новичок · улица</h2>
+        <p class="reveal">2–3 спокойные поездки в неделю по RPE 3–5 из 10: разговорный темп, безопасная работа в группе и постепенное увеличение времени в седле.</p>
+
+        <h2 class="reveal">Средний уровень · станок</h2>
+        <p class="reveal">4 тренировки в неделю: sweet spot 88–94% FTP, короткие VO2max-интервалы и длинная endurance-сессия.</p>
+
+        <h2 class="reveal">Средний уровень · улица</h2>
+        <p class="reveal">Темповая работа на знакомом маршруте, один групповой заезд, одна длинная поездка и восстановительный день после интенсивности.</p>
+      </div>
+
+      <aside class="d-sidebar reveal">
+        <h3>Как пользоваться</h3>
+        <ul class="gear-list">
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Начинайте с уровня ниже, если был перерыв</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Увеличивайте объём постепенно</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Оставляйте минимум один день отдыха</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Снижайте нагрузку при признаках усталости</li>
+        </ul>
+        <a href="index.html#join" class="btn btn-primary">Присоединиться к клубу</a>
+      </aside>
+    </div>
+  </section>
+
+</main>`,
+  },
 };
 
 export const pathToPage = {
   '/': 'home',
   '/index.html': 'home',
+  '/routes': 'routes',
   '/routes.html': 'routes',
+  '/community': 'community',
   '/community.html': 'community',
+  '/news': 'news',
+  '/news.html': 'news',
+  '/training-plans': 'trainingPlans',
+  '/training-plans.html': 'trainingPlans',
+  '/road': 'road',
   '/road.html': 'road',
+  '/track': 'track',
   '/track.html': 'track',
+  '/mtb': 'mtb',
   '/mtb.html': 'mtb',
+  '/gravel': 'gravel',
   '/gravel.html': 'gravel',
+  '/cyclocross': 'cyclocross',
   '/cyclocross.html': 'cyclocross',
+  '/bmx': 'bmx',
   '/bmx.html': 'bmx',
 };

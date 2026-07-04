@@ -1,8 +1,10 @@
-import { copyFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync } from 'node:fs';
 
-const routes = [
+const legacyRoutes = [
   'routes.html',
   'community.html',
+  'news.html',
+  'training-plans.html',
   'road.html',
   'track.html',
   'mtb.html',
@@ -11,6 +13,24 @@ const routes = [
   'bmx.html',
 ];
 
-for (const route of routes) {
+const cleanRoutes = [
+  'routes',
+  'community',
+  'news',
+  'training-plans',
+  'road',
+  'track',
+  'mtb',
+  'gravel',
+  'cyclocross',
+  'bmx',
+];
+
+for (const route of legacyRoutes) {
   copyFileSync('dist/index.html', `dist/${route}`);
+}
+
+for (const route of cleanRoutes) {
+  mkdirSync(`dist/${route}`, { recursive: true });
+  copyFileSync('dist/index.html', `dist/${route}/index.html`);
 }

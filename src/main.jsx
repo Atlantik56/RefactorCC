@@ -1,31 +1,42 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import './styles.css';
 import { pages, pathToPage } from './pageContent.js';
 
-const routeFiles = {
-  home: 'index.html',
-  routes: 'routes.html',
-  community: 'community.html',
-  road: 'road.html',
-  track: 'track.html',
-  mtb: 'mtb.html',
-  gravel: 'gravel.html',
-  cyclocross: 'cyclocross.html',
-  bmx: 'bmx.html',
+const legacyRouteTargets = {
+  'index.html': '/',
+  'routes.html': '/routes',
+  'community.html': '/community',
+  'news.html': '/news',
+  'training-plans.html': '/training-plans',
+  'road.html': '/road',
+  'track.html': '/track',
+  'mtb.html': '/mtb',
+  'gravel.html': '/gravel',
+  'cyclocross.html': '/cyclocross',
+  'bmx.html': '/bmx',
 };
 
-function pageFromLocation() {
+function normalizePath(pathname) {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-  let path = window.location.pathname;
+  let path = pathname;
   if (base && path.startsWith(base)) {
     path = path.slice(base.length) || '/';
   }
-  return pages[pathToPage[path] || 'home'];
+  return path || '/';
+}
+
+function pathFor(target) {
+  const [rawPath, hash = ''] = target.split('#');
+  const path = legacyRouteTargets[rawPath] || rawPath || '/';
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${normalizedPath}${hash ? `#${hash}` : ''}`;
 }
 
 function hrefFor(file) {
-  return `${import.meta.env.BASE_URL}${file}`.replace(/\/{2,}/g, '/');
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  return `${base}${pathFor(file)}`;
 }
 
 function renderSafeCaption(target, html) {
@@ -103,7 +114,9 @@ function Header({ activePage }) {
   const navItems = [
     { key: 'disciplines', href: 'index.html#disciplines', label: 'Дисциплины' },
     { key: 'routes', href: 'routes.html', label: 'Маршруты' },
+    { key: 'news', href: 'news.html', label: 'Новости' },
     { key: 'community', href: 'community.html', label: 'Комьюнити' },
+    { key: 'trainingPlans', href: 'training-plans.html', label: 'Планы' },
   ];
 
   return (
@@ -162,7 +175,8 @@ function Footer() {
               <h4>Ресурсы</h4>
               <a href={hrefFor('routes.html')}>Маршруты</a>
               <a href={hrefFor('community.html')}>Комьюнити</a>
-              <a href={hrefFor('index.html#join')}>Тренировочные планы</a>
+              <a href={hrefFor('training-plans.html')}>Тренировочные планы</a>
+              <a href={hrefFor('news.html')}>Новости</a>
             </div>
             <div className="footer-col">
               <h4>Контакты</h4>
@@ -233,6 +247,41 @@ function useDocumentMeta(page) {
     setMeta('meta[property="og:title"]', 'content', page.ogTitle);
     setMeta('meta[property="og:description"]', 'content', page.ogDescription);
   }, [page]);
+}
+
+function useHashScroll(hash, pageKey) {
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      const target = document.getElementById(hash.slice(1));
+      target?.scrollIntoView();
+    });
+  }, [hash, pageKey]);
+}
+
+function useInternalNavigation(navigate) {
+  useEffect(() => {
+    const onClick = (event) => {
+      const anchor = event.target.closest?.('a[href]');
+      if (!anchor || anchor.target || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      const url = new URL(anchor.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+
+      const path = normalizePath(url.pathname);
+      if (!pathToPage[path]) return;
+
+      event.preventDefault();
+      navigate(`${path}${url.hash}`);
+    };
+
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, [navigate]);
 }
 
 function usePageEffects(pageKey) {
@@ -445,10 +494,12 @@ function usePageEffects(pageKey) {
   }, [pageKey]);
 }
 
-function App() {
-  const initialPage = useMemo(() => pageFromLocation(), []);
-  const [page] = useState(initialPage);
+function PageFrame({ page }) {
+  const location = useLocation();
+  const navigate = useNavigate();
   useDocumentMeta(page);
+  useHashScroll(location.hash, page.key);
+  useInternalNavigation(navigate);
   usePageEffects(page.key);
 
   return (
@@ -459,6 +510,27 @@ function App() {
       <div dangerouslySetInnerHTML={{ __html: page.html }} />
       <Footer />
     </>
+  );
+}
+
+function AppRoutes() {
+  const routes = useMemo(() => Object.entries(pathToPage), []);
+
+  return (
+    <Routes>
+      {routes.map(([path, pageKey]) => (
+        <Route key={path} path={path} element={<PageFrame page={pages[pageKey]} />} />
+      ))}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 
