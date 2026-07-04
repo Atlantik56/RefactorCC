@@ -295,13 +295,19 @@ function usePageEffects(pageKey) {
         path: document.querySelector('.circuit-spark-path-left'),
         spark: document.querySelector('.circuit-spark-left'),
         direction: 1,
+        offset: 0,
       },
       {
         path: document.querySelector('.circuit-spark-path-right'),
         spark: document.querySelector('.circuit-spark-right'),
         direction: 1,
+        offset: 0.46,
       },
     ];
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    let latestScrollProgress = 0;
+    let circuitAnimationFrame = null;
+    let circuitAnimationStart = null;
 
     const updateCircuitSpark = ({ path, spark, direction }, progress) => {
       if (!path || !spark || !circuitLayer) return;
@@ -324,12 +330,24 @@ function usePageEffects(pageKey) {
       const scrollEl = document.scrollingElement || document.documentElement;
       const denom = scrollEl.scrollHeight - scrollEl.clientHeight;
       const scrolled = denom > 0 ? scrollEl.scrollTop / denom : 0;
+      latestScrollProgress = scrolled;
       root.style.setProperty('--scroll-progress', scrolled.toFixed(4));
       root.style.setProperty('--circuit-layer-height', `${scrollEl.scrollHeight}px`);
-      requestAnimationFrame(() => {
+      if (prefersReducedMotion) requestAnimationFrame(() => {
         circuitSparks.forEach((sparkConfig) => updateCircuitSpark(sparkConfig, scrolled));
       });
       if (progressBar) progressBar.style.width = `${scrolled * 100}%`;
+    };
+
+    const animateCircuitSignal = (timestamp) => {
+      if (circuitAnimationStart === null) circuitAnimationStart = timestamp;
+      const elapsed = timestamp - circuitAnimationStart;
+      const signalProgress = (elapsed / 9000 + latestScrollProgress * 0.28) % 1;
+
+      circuitSparks.forEach((sparkConfig) => {
+        updateCircuitSpark(sparkConfig, (signalProgress + sparkConfig.offset) % 1);
+      });
+      circuitAnimationFrame = requestAnimationFrame(animateCircuitSignal);
     };
 
     const updateHeader = () => {
@@ -354,6 +372,7 @@ function usePageEffects(pageKey) {
     const resizeObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(onScroll);
     resizeObserver?.observe(document.body);
     updateProgress();
+    if (!prefersReducedMotion) circuitAnimationFrame = requestAnimationFrame(animateCircuitSignal);
     updateHeader();
 
     const revealEls = document.querySelectorAll('.reveal, .mini-profile');
@@ -480,6 +499,7 @@ function usePageEffects(pageKey) {
       window.removeEventListener('resize', onScroll);
       window.removeEventListener('load', onScroll);
       resizeObserver?.disconnect();
+      if (circuitAnimationFrame) cancelAnimationFrame(circuitAnimationFrame);
       root.style.removeProperty('--scroll-progress');
       root.style.removeProperty('--circuit-layer-height');
       revealObserver.disconnect();
