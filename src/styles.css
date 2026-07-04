@@ -886,6 +886,120 @@ footer{ padding:60px 0 34px; }
 .gear-list li svg{ width:18px; height:18px; color:var(--accent); flex-shrink:0; }
 .d-sidebar .btn{ width:100%; justify-content:center; margin-top:20px; }
 
+/* Training plans */
+.training-plan-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  margin:28px 0 42px;
+}
+.training-plan-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+  transition:transform .4s var(--ease), border-color .4s;
+}
+.training-plan-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--line-strong);
+}
+.plan-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.training-plan-card h3{
+  font-size:clamp(24px,3vw,34px);
+  margin-bottom:10px;
+}
+.training-plan-card p{
+  max-width:72ch;
+}
+.plan-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:18px 0;
+}
+.plan-meta span,
+.training-zones span{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:6px 10px;
+  color:var(--text-dim);
+  font-family:'JetBrains Mono', monospace;
+  font-size:11.5px;
+}
+.plan-week-table{
+  display:grid;
+  gap:1px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--line);
+}
+.plan-week-table div,
+.workout-library div{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:14px;
+  align-items:start;
+  background:var(--surface-2);
+  padding:12px 14px;
+}
+.plan-week-table b,
+.workout-library b{
+  color:var(--accent);
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px;
+}
+.plan-week-table span,
+.workout-library span{
+  color:var(--text-dim);
+  font-size:13.5px;
+}
+.workout-library{
+  display:grid;
+  gap:1px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--line);
+  margin-top:18px;
+}
+.workout-library div{
+  grid-template-columns:130px 1fr;
+}
+.training-zones{
+  margin-top:22px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+}
+.training-zones h4{
+  font-family:'JetBrains Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-dim-2);
+  margin-bottom:12px;
+}
+.training-zones span{
+  display:inline-flex;
+  margin:0 6px 8px 0;
+}
+@media(max-width:640px){
+  .training-plan-card{ padding:20px; }
+  .plan-week-table div,
+  .workout-library div{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+}
+
 /* Other disciplines nav */
 .d-others{
   border-top:1px solid var(--line);

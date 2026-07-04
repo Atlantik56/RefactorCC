@@ -1364,9 +1364,9 @@ export const pages = {
     key: 'trainingPlans',
     nav: 'trainingPlans',
     title: `Планы тренировок — Refactor Cycling Club`,
-    description: `Планы тренировок Refactor Cycling Club для шоссейного велоспорта: новичок и средний уровень, станок и улица.`,
+    description: `Планы тренировок Refactor Cycling Club для шоссейного велоспорта: 6-недельные программы для новичка и среднего уровня, станок и улица.`,
     ogTitle: `Планы тренировок — Refactor Cycling Club`,
-    ogDescription: `Статические тренировочные планы для шоссе: варианты для станка и улицы без сбора персональных данных.`,
+    ogDescription: `Оригинальные тренировочные планы в логике Zwift и TrainingPeaks: FTP-зоны, RPE, пульс, интервалы и восстановление.`,
     html: `<main>
 
   <section class="d-hero">
@@ -1379,45 +1379,140 @@ export const pages = {
       </div>
       <span class="idx-big mono">TRAINING · ROAD</span>
       <h1>Планы тренировок</h1>
-      <p class="sub">Базовые программы для шоссейного велоспорта: станок по процентам FTP и улица по ощущениям или пульсу.</p>
+      <p class="sub">Оригинальные 6-недельные программы в стиле Zwift, TrainingPeaks и TrainerRoad: станок по %FTP, улица по ощущениям и пульсу.</p>
       <div class="tags">
-        <span>Новичок</span>
-        <span>Средний уровень</span>
-        <span>Станок</span>
-        <span>Улица</span>
+        <span>6 недель</span>
+        <span>%FTP</span>
+        <span>RPE / HR</span>
+        <span>Road base</span>
       </div>
+    </div>
+  </section>
+
+  <section class="spec-strip circuit-grid">
+    <div class="wrap spec-grid">
+      <div class="spec"><div class="v">4</div><div class="k">готовых плана</div></div>
+      <div class="spec"><div class="v">3–4</div><div class="k">тренировки в неделю</div></div>
+      <div class="spec"><div class="v">45–150</div><div class="k">минут на сессию</div></div>
+      <div class="spec"><div class="v">Z2–VO2</div><div class="k">зоны нагрузки</div></div>
     </div>
   </section>
 
   <section class="pad">
     <div class="wrap d-content">
       <div class="d-main">
-        <h2 class="reveal">Новичок · станок</h2>
-        <p class="reveal">3 тренировки в неделю: лёгкая выносливость 55–65% FTP, каденс-дриллы и короткая темповая работа до 80% FTP.</p>
-        <ul class="reveal">
-          <li>Недели 1–2: адаптация и ровная техника педалирования</li>
-          <li>Недели 3–4: интервалы 3–5 минут в зоне tempo</li>
-          <li>Неделя 5: разгрузка и контрольное ощущение темпа</li>
-        </ul>
+        <h2 class="reveal">Как выбрать план</h2>
+        <p class="reveal">Эти программы не копируют платные планы Zwift, TrainingPeaks или TrainerRoad. Они собраны как оригинальные шаблоны по той же понятной логике: прогрессия нагрузки, разгрузочная неделя, работа с FTP-зонами и перенос тренировок на улицу через RPE/пульс.</p>
 
-        <h2 class="reveal">Новичок · улица</h2>
-        <p class="reveal">2–3 спокойные поездки в неделю по RPE 3–5 из 10: разговорный темп, безопасная работа в группе и постепенное увеличение времени в седле.</p>
+        <div class="training-plan-grid stagger">
+          <article class="training-plan-card reveal">
+            <div class="plan-head">
+              <span class="idx mono">PLAN 01</span>
+              <span class="tag">Beginner · Indoor</span>
+            </div>
+            <h3>Новичок · станок</h3>
+            <p>Для первого структурного блока на Zwift/Wattbike/смарт-станке. Цель: привыкнуть к регулярности, ровной каденции и базовой выносливости.</p>
+            <div class="plan-meta">
+              <span>6 недель</span><span>3 сессии</span><span>45–75 мин</span>
+            </div>
+            <div class="plan-week-table">
+              <div><b>1</b><span>2x endurance 55–65% FTP · каденс 90–100 rpm</span></div>
+              <div><b>2</b><span>3x6 мин tempo 76–82% FTP · длинная Z2</span></div>
+              <div><b>3</b><span>4x5 мин sweet spot 88–90% FTP · техника</span></div>
+              <div><b>4</b><span>разгрузка: 2 лёгкие Z2 · 1 короткий spin-up</span></div>
+              <div><b>5</b><span>3x8 мин tempo/sweet spot · endurance 75 мин</span></div>
+              <div><b>6</b><span>контроль: 2x12 мин 85–90% FTP · лёгкий финал</span></div>
+            </div>
+          </article>
 
-        <h2 class="reveal">Средний уровень · станок</h2>
-        <p class="reveal">4 тренировки в неделю: sweet spot 88–94% FTP, короткие VO2max-интервалы и длинная endurance-сессия.</p>
+          <article class="training-plan-card reveal">
+            <div class="plan-head">
+              <span class="idx mono">PLAN 02</span>
+              <span class="tag">Beginner · Road</span>
+            </div>
+            <h3>Новичок · улица</h3>
+            <p>Для спокойного входа в шоссе без измерителя мощности. Ориентиры: разговорный темп, RPE и пульс, безопасная езда в группе.</p>
+            <div class="plan-meta">
+              <span>6 недель</span><span>2–3 выезда</span><span>45–120 мин</span>
+            </div>
+            <div class="plan-week-table">
+              <div><b>1</b><span>2 лёгких выезда RPE 3/10 · навык торможения и посадки</span></div>
+              <div><b>2</b><span>1 техника + 1 endurance 75 мин · пульс Z2</span></div>
+              <div><b>3</b><span>4 подъёма по 3 мин RPE 6/10 · длинная ровная поездка</span></div>
+              <div><b>4</b><span>разгрузка: 2 коротких выезда без интенсивности</span></div>
+              <div><b>5</b><span>групповой endurance · 3x8 мин устойчивый темп</span></div>
+              <div><b>6</b><span>90–120 мин Z2 · последние 20 мин ровно, без рывков</span></div>
+            </div>
+          </article>
 
-        <h2 class="reveal">Средний уровень · улица</h2>
-        <p class="reveal">Темповая работа на знакомом маршруте, один групповой заезд, одна длинная поездка и восстановительный день после интенсивности.</p>
+          <article class="training-plan-card reveal">
+            <div class="plan-head">
+              <span class="idx mono">PLAN 03</span>
+              <span class="tag">Intermediate · Indoor</span>
+            </div>
+            <h3>Средний уровень · станок</h3>
+            <p>Блок для райдера с FTP-тестом и базой. Цель: поднять устойчивую мощность, добавить VO2max и сохранить endurance-объём.</p>
+            <div class="plan-meta">
+              <span>6 недель</span><span>4 сессии</span><span>50–95 мин</span>
+            </div>
+            <div class="plan-week-table">
+              <div><b>1</b><span>2x12 мин sweet spot 88–92% · 1 endurance · 1 recovery</span></div>
+              <div><b>2</b><span>3x10 мин 90–94% · 5x2 мин VO2 110–115%</span></div>
+              <div><b>3</b><span>over-under 3x9 мин 88/102% · длинная Z2</span></div>
+              <div><b>4</b><span>разгрузка: объём -35% · короткие openers 3x1 мин</span></div>
+              <div><b>5</b><span>4x8 мин 95–100% · 6x3 мин VO2 108–112%</span></div>
+              <div><b>6</b><span>2x20 мин 88–92% · мини-ramp или 20-мин контроль</span></div>
+            </div>
+          </article>
+
+          <article class="training-plan-card reveal">
+            <div class="plan-head">
+              <span class="idx mono">PLAN 04</span>
+              <span class="tag">Intermediate · Road</span>
+            </div>
+            <h3>Средний уровень · улица</h3>
+            <p>Для шоссейника, который хочет перенести структуру TrainingPeaks на реальные маршруты: подъёмы, ветер, группа и восстановление.</p>
+            <div class="plan-meta">
+              <span>6 недель</span><span>3–4 выезда</span><span>60–150 мин</span>
+            </div>
+            <div class="plan-week-table">
+              <div><b>1</b><span>2 tempo-блока по 15 мин · 1 лёгкая раскатка</span></div>
+              <div><b>2</b><span>5 подъёмов по 3 мин RPE 8/10 · endurance 2 ч</span></div>
+              <div><b>3</b><span>over-under на холмах: 4x8 мин · групповая Z2</span></div>
+              <div><b>4</b><span>разгрузка: техника поворотов, каденс, лёгкий объём</span></div>
+              <div><b>5</b><span>2x20 мин устойчивый темп · 6 коротких ускорений</span></div>
+              <div><b>6</b><span>контрольный маршрут 60–90 мин · ровный negative split</span></div>
+            </div>
+          </article>
+        </div>
+
+        <h2 class="reveal">Библиотека тренировок</h2>
+        <div class="workout-library reveal">
+          <div><b>Endurance</b><span>45–120 мин · 55–70% FTP · RPE 3–4 · пульс Z2</span></div>
+          <div><b>Tempo</b><span>3–4 блока по 6–12 мин · 76–87% FTP · RPE 5–6</span></div>
+          <div><b>Sweet spot</b><span>2–4 блока по 8–20 мин · 88–94% FTP · RPE 7</span></div>
+          <div><b>VO2max</b><span>4–6 повторов по 2–4 мин · 106–120% FTP · RPE 8–9</span></div>
+          <div><b>Recovery</b><span>30–50 мин · до 55% FTP · легко, без борьбы за среднюю</span></div>
+        </div>
       </div>
 
       <aside class="d-sidebar reveal">
         <h3>Как пользоваться</h3>
         <ul class="gear-list">
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Начинайте с уровня ниже, если был перерыв</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Увеличивайте объём постепенно</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Оставляйте минимум один день отдыха</li>
-          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Снижайте нагрузку при признаках усталости</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Сделайте FTP-тест или выберите план по RPE</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Не увеличивайте объём больше чем на 10% в неделю</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>После тяжёлого дня ставьте recovery или отдых</li>
+          <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>При болезни, боли или сильной усталости снижайте нагрузку</li>
         </ul>
+        <div class="training-zones">
+          <h4>Зоны FTP</h4>
+          <span>Z1: до 55%</span>
+          <span>Z2: 56–75%</span>
+          <span>Z3: 76–87%</span>
+          <span>SS: 88–94%</span>
+          <span>Z4: 95–105%</span>
+          <span>Z5: 106–120%</span>
+        </div>
         <a href="index.html#join" class="btn btn-primary">Присоединиться к клубу</a>
       </aside>
     </div>
