@@ -95,10 +95,10 @@ section{ position:relative; }
   left:0;
   right:0;
   height:var(--circuit-layer-height);
-  z-index:2;
+  z-index:40;
   pointer-events:none;
   overflow:hidden;
-  opacity:0.66;
+  opacity:0.58;
   mix-blend-mode:screen;
 }
 .circuit-trace-layer::before{
@@ -210,13 +210,13 @@ section{ position:relative; }
   50%{ opacity:0.95; }
 }
 @media(max-width:900px){
-  .circuit-trace-layer{ opacity:0.48; }
+  .circuit-trace-layer{ opacity:0.42; }
   .circuit-traces{ width:31vw; min-width:112px; }
   .circuit-traces-right,
   .circuit-spark-right{ opacity:0.44; }
 }
 @media(max-width:560px){
-  .circuit-trace-layer{ opacity:0.34; }
+  .circuit-trace-layer{ opacity:0.3; }
   .circuit-traces{ min-width:94px; }
   .circuit-spark{
     width:8px;

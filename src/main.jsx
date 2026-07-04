@@ -277,7 +277,9 @@ function usePageEffects(pageKey) {
       const scrolled = denom > 0 ? scrollEl.scrollTop / denom : 0;
       root.style.setProperty('--scroll-progress', scrolled.toFixed(4));
       root.style.setProperty('--circuit-layer-height', `${scrollEl.scrollHeight}px`);
-      circuitSparks.forEach((sparkConfig) => updateCircuitSpark(sparkConfig, scrolled));
+      requestAnimationFrame(() => {
+        circuitSparks.forEach((sparkConfig) => updateCircuitSpark(sparkConfig, scrolled));
+      });
       if (progressBar) progressBar.style.width = `${scrolled * 100}%`;
     };
 
@@ -299,6 +301,9 @@ function usePageEffects(pageKey) {
 
     document.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
+    window.addEventListener('load', onScroll);
+    const resizeObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(onScroll);
+    resizeObserver?.observe(document.body);
     updateProgress();
     updateHeader();
 
@@ -424,6 +429,8 @@ function usePageEffects(pageKey) {
     return () => {
       document.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
+      window.removeEventListener('load', onScroll);
+      resizeObserver?.disconnect();
       root.style.removeProperty('--scroll-progress');
       root.style.removeProperty('--circuit-layer-height');
       revealObserver.disconnect();
