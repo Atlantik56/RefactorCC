@@ -28,6 +28,36 @@ function hrefFor(file) {
   return `${import.meta.env.BASE_URL}${file}`.replace(/\/{2,}/g, '/');
 }
 
+function renderSafeCaption(target, html) {
+  const allowedTags = new Set(['STRONG', 'EM', 'B', 'I', 'BR']);
+  const template = document.createElement('template');
+  template.innerHTML = html || '';
+
+  const sanitizeNode = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      return document.createTextNode(node.textContent || '');
+    }
+
+    if (node.nodeType !== Node.ELEMENT_NODE) {
+      return document.createDocumentFragment();
+    }
+
+    if (!allowedTags.has(node.tagName)) {
+      const fragment = document.createDocumentFragment();
+      node.childNodes.forEach((child) => fragment.append(sanitizeNode(child)));
+      return fragment;
+    }
+
+    const element = document.createElement(node.tagName.toLowerCase());
+    node.childNodes.forEach((child) => element.append(sanitizeNode(child)));
+    return element;
+  };
+
+  const fragment = document.createDocumentFragment();
+  template.content.childNodes.forEach((node) => fragment.append(sanitizeNode(node)));
+  target.replaceChildren(fragment);
+}
+
 function WheelIcon() {
   return (
     <svg className="wheel" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
@@ -281,7 +311,7 @@ function usePageEffects(pageKey) {
         if (counter) counter.textContent = `${index + 1} / ${slides.length}`;
         if (captionEl) {
           const cap = slides[index].getAttribute('data-caption');
-          if (cap) captionEl.textContent = cap;
+          renderSafeCaption(captionEl, cap);
         }
       };
       const go = (nextIndex) => {
