@@ -19,7 +19,7 @@
   --radius:14px;
   --ease:cubic-bezier(.16,.84,.32,1);
   --scroll-progress:0;
-  --circuit-spark-y:7vh;
+  --circuit-layer-height:100vh;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -34,6 +34,11 @@ body{
 }
 body.nav-open{ overflow:hidden; }
 ::selection{ background:var(--accent); color:var(--accent-ink); }
+#root{
+  position:relative;
+  min-height:100%;
+  isolation:isolate;
+}
 
 h1,h2,h3,.display{
   font-family:'Anton', sans-serif;
@@ -85,12 +90,15 @@ section{ position:relative; }
 
 /* ---------- Scroll-reactive circuit traces ---------- */
 .circuit-trace-layer{
-  position:fixed;
-  inset:0;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:var(--circuit-layer-height);
   z-index:2;
   pointer-events:none;
   overflow:hidden;
-  opacity:0.72;
+  opacity:0.66;
   mix-blend-mode:screen;
 }
 .circuit-trace-layer::before{
@@ -98,14 +106,13 @@ section{ position:relative; }
   position:absolute;
   inset:0;
   background:
-    linear-gradient(90deg, rgba(18,22,29,0.78) 0%, transparent 20%, transparent 80%, rgba(18,22,29,0.78) 100%),
-    radial-gradient(ellipse at 12% var(--circuit-spark-y), rgba(125,211,252,0.12), transparent 30%),
-    radial-gradient(ellipse at 88% calc(100vh - var(--circuit-spark-y)), rgba(228,255,60,0.08), transparent 28%);
+    linear-gradient(90deg, rgba(18,22,29,0.86) 0%, transparent 18%, transparent 82%, rgba(18,22,29,0.86) 100%),
+    linear-gradient(180deg, rgba(18,22,29,0.72), transparent 14%, transparent 86%, rgba(18,22,29,0.72));
 }
 .circuit-traces{
   position:absolute;
   top:0;
-  height:100vh;
+  height:100%;
   width:min(24vw, 260px);
   min-width:150px;
   color:var(--accent);
@@ -150,18 +157,19 @@ section{ position:relative; }
 .circuit-pads circle:nth-child(3n){ animation-delay:1.6s; }
 .circuit-spark{
   position:absolute;
-  left:clamp(24px, 8vw, 104px);
-  top:var(--circuit-spark-y);
-  width:10px;
-  height:10px;
+  left:0;
+  top:0;
+  width:12px;
+  height:12px;
   border-radius:50%;
-  background:var(--yellow);
+  background:var(--accent);
   box-shadow:
-    0 0 8px rgba(228,255,60,0.95),
-    0 0 22px rgba(56,189,248,0.8),
-    0 0 42px rgba(56,189,248,0.45);
+    0 0 8px rgba(56,189,248,0.95),
+    0 0 22px rgba(56,189,248,0.76),
+    0 0 44px rgba(56,189,248,0.38);
   transform:translate(-50%, -50%);
-  transition:top .16s linear;
+  transition:transform .12s linear;
+  will-change:transform;
 }
 .circuit-spark::before,
 .circuit-spark::after{
@@ -171,15 +179,28 @@ section{ position:relative; }
   right:50%;
   height:2px;
   border-radius:999px;
-  background:linear-gradient(90deg, transparent, rgba(228,255,60,0.85));
+  background:linear-gradient(90deg, transparent, rgba(56,189,248,0.82));
   transform:translateY(-50%);
 }
-.circuit-spark::before{ width:58px; }
+.circuit-spark::before{ width:46px; }
 .circuit-spark::after{
   left:50%;
   right:auto;
-  width:34px;
-  background:linear-gradient(90deg, rgba(228,255,60,0.85), transparent);
+  width:28px;
+  background:linear-gradient(90deg, rgba(56,189,248,0.82), transparent);
+}
+.circuit-spark-right{
+  background:var(--accent2);
+  box-shadow:
+    0 0 8px rgba(125,211,252,0.95),
+    0 0 22px rgba(125,211,252,0.72),
+    0 0 44px rgba(56,189,248,0.34);
+}
+.circuit-spark-right::before{
+  background:linear-gradient(90deg, transparent, rgba(125,211,252,0.82));
+}
+.circuit-spark-right::after{
+  background:linear-gradient(90deg, rgba(125,211,252,0.82), transparent);
 }
 @keyframes circuitFlow{
   to{ stroke-dashoffset:-76; }
@@ -189,20 +210,20 @@ section{ position:relative; }
   50%{ opacity:0.95; }
 }
 @media(max-width:900px){
-  .circuit-trace-layer{ opacity:0.5; }
-  .circuit-traces{ width:34vw; min-width:118px; }
-  .circuit-traces-right{ display:none; }
-  .circuit-spark{ left:clamp(22px, 12vw, 72px); }
+  .circuit-trace-layer{ opacity:0.48; }
+  .circuit-traces{ width:31vw; min-width:112px; }
+  .circuit-traces-right,
+  .circuit-spark-right{ opacity:0.44; }
 }
 @media(max-width:560px){
-  .circuit-trace-layer{ opacity:0.38; }
+  .circuit-trace-layer{ opacity:0.34; }
   .circuit-traces{ min-width:94px; }
   .circuit-spark{
     width:8px;
     height:8px;
   }
-  .circuit-spark::before{ width:34px; }
-  .circuit-spark::after{ width:22px; }
+  .circuit-spark::before{ width:28px; }
+  .circuit-spark::after{ width:18px; }
 }
 
 /* ---------- Nav ---------- */

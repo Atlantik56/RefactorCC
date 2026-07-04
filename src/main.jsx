@@ -187,7 +187,7 @@ function CircuitTraceLayer() {
   return (
     <div className="circuit-trace-layer" aria-hidden="true">
       <svg className="circuit-traces circuit-traces-left" viewBox="0 0 260 1200" preserveAspectRatio="none" focusable="false">
-        <path className="circuit-track track-a" d="M26 0V110H92V224H48V354H126V496H72V640H154V774H106V898H178V1050H132V1200" />
+        <path className="circuit-track circuit-spark-path circuit-spark-path-left track-a" d="M26 0V110H92V224H48V354H126V496H72V640H154V774H106V898H178V1050H132V1200" />
         <path className="circuit-track track-b" d="M146 0V72H206V190H164V314H226V458H170V590H228V732H188V842H232V1008H196V1200" />
         <path className="circuit-branch branch-a" d="M48 354H18M126 496H210M72 640H30M178 1050H236" />
         <g className="circuit-pads">
@@ -202,7 +202,7 @@ function CircuitTraceLayer() {
         </g>
       </svg>
       <svg className="circuit-traces circuit-traces-right" viewBox="0 0 260 1200" preserveAspectRatio="none" focusable="false">
-        <path className="circuit-track track-c" d="M218 0V96H164V216H214V338H128V488H190V616H104V762H158V884H82V1018H128V1200" />
+        <path className="circuit-track circuit-spark-path circuit-spark-path-right track-c" d="M218 0V96H164V216H214V338H128V488H190V616H104V762H158V884H82V1018H128V1200" />
         <path className="circuit-track track-d" d="M92 0V150H42V282H96V424H34V546H88V696H28V830H70V964H32V1200" />
         <path className="circuit-branch branch-b" d="M214 338H242M128 488H54M104 762H230M82 1018H18" />
         <g className="circuit-pads">
@@ -216,7 +216,8 @@ function CircuitTraceLayer() {
           <circle cx="70" cy="964" r="4" />
         </g>
       </svg>
-      <span className="circuit-spark" />
+      <span className="circuit-spark circuit-spark-left" />
+      <span className="circuit-spark circuit-spark-right" />
     </div>
   );
 }
@@ -239,13 +240,44 @@ function usePageEffects(pageKey) {
     const progressBar = document.querySelector('#race-progress span');
     const root = document.documentElement;
     const header = document.getElementById('site-header');
+    const circuitLayer = document.querySelector('.circuit-trace-layer');
+    const circuitSparks = [
+      {
+        path: document.querySelector('.circuit-spark-path-left'),
+        spark: document.querySelector('.circuit-spark-left'),
+        direction: 1,
+      },
+      {
+        path: document.querySelector('.circuit-spark-path-right'),
+        spark: document.querySelector('.circuit-spark-right'),
+        direction: 1,
+      },
+    ];
+
+    const updateCircuitSpark = ({ path, spark, direction }, progress) => {
+      if (!path || !spark || !circuitLayer) return;
+      const svg = path.ownerSVGElement;
+      const viewBox = svg?.viewBox?.baseVal;
+      if (!svg || !viewBox?.width || !viewBox?.height) return;
+
+      const pathLength = path.getTotalLength();
+      const sparkProgress = direction === -1 ? 1 - progress : progress;
+      const point = path.getPointAtLength(pathLength * sparkProgress);
+      const svgRect = svg.getBoundingClientRect();
+      const layerRect = circuitLayer.getBoundingClientRect();
+      const x = svgRect.left - layerRect.left + (point.x / viewBox.width) * svgRect.width;
+      const y = svgRect.top - layerRect.top + (point.y / viewBox.height) * svgRect.height;
+
+      spark.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+    };
 
     const updateProgress = () => {
       const scrollEl = document.scrollingElement || document.documentElement;
       const denom = scrollEl.scrollHeight - scrollEl.clientHeight;
       const scrolled = denom > 0 ? scrollEl.scrollTop / denom : 0;
       root.style.setProperty('--scroll-progress', scrolled.toFixed(4));
-      root.style.setProperty('--circuit-spark-y', `${7 + scrolled * 86}vh`);
+      root.style.setProperty('--circuit-layer-height', `${scrollEl.scrollHeight}px`);
+      circuitSparks.forEach((sparkConfig) => updateCircuitSpark(sparkConfig, scrolled));
       if (progressBar) progressBar.style.width = `${scrolled * 100}%`;
     };
 
@@ -393,7 +425,7 @@ function usePageEffects(pageKey) {
       document.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
       root.style.removeProperty('--scroll-progress');
-      root.style.removeProperty('--circuit-spark-y');
+      root.style.removeProperty('--circuit-layer-height');
       revealObserver.disconnect();
       counterObserver.disconnect();
       formHandlers.forEach(([form, handler]) => form.removeEventListener('submit', handler));
