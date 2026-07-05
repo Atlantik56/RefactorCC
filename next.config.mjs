@@ -1,4 +1,7 @@
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const repositoryName = 'RefactorCC';
+const defaultProductionBasePath = `/${repositoryName}`;
+const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
+const basePath = configuredBasePath ?? (process.env.NODE_ENV === 'production' ? defaultProductionBasePath : '');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
