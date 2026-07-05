@@ -1401,7 +1401,7 @@ export const pages = {
         <div class="training-plan-grid stagger">
           <article class="training-plan-card reveal">
             <div class="plan-visual">
-              <img src="assets/wikimedia/cyclists-on-the-valley-preferred-cycling-center-track.jpg" alt="Велосипедисты тренируются на велодроме в контролируемом темпе" loading="lazy">
+              <img src="assets/flickr/road-bike-on-indoor-trainer-1.jpg" alt="Шоссейный велосипед закреплён на смарт-станке дома" loading="lazy">
               <span>Indoor base · smart trainer</span>
             </div>
             <div class="plan-head">
@@ -1451,7 +1451,7 @@ export const pages = {
 
           <article class="training-plan-card reveal">
             <div class="plan-visual">
-              <img src="assets/wikimedia/cyclists-on-the-valley-preferred-cycling-center-track.jpg" alt="Группа велосипедистов выполняет интервальную работу на треке" loading="lazy">
+              <img src="assets/flickr/road-bike-on-indoor-trainer-2.jpg" alt="Велосипед на роликовом станке для интервальной тренировки дома" loading="lazy">
               <span>Power build · FTP / VO2</span>
             </div>
             <div class="plan-head">
@@ -1476,7 +1476,7 @@ export const pages = {
 
           <article class="training-plan-card reveal">
             <div class="plan-visual">
-              <img src="assets/wikimedia/tdf-2022-tuzaguet-arri-re-du-peloton.jpg" alt="Пелотон шоссейных велосипедистов едет по дороге" loading="lazy">
+              <img src="assets/wikimedia/silhouette-of-a-pack-of-cyclists.jpg" alt="Группа шоссейных велосипедистов едет плотной группой на закате" loading="lazy">
               <span>Road build · hills / group</span>
             </div>
             <div class="plan-head">
@@ -1545,7 +1545,7 @@ export const pages = {
 
   <section class="d-hero">
     <div class="d-hero-photo">
-      <img src="assets/wikimedia/cycle-sunset-road-photography.jpg" alt="Велосипедист едет по дороге на закате">
+      <img src="assets/flickr/road-bike-on-indoor-trainer-1.jpg" alt="Шоссейный велосипед закреплён на смарт-станке дома">
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
@@ -1563,6 +1563,18 @@ export const pages = {
       <div class="plan-detail-main">
         <h2 class="reveal">Перед стартом</h2>
         <p class="reveal">Если FTP неизвестен, сделайте ramp test или задайте мощность так, чтобы Z2 ощущалась как спокойная работа с ровным дыханием. Каждая тренировка начинается с 8–12 минут разминки и заканчивается 5–10 минутами заминки.</p>
+        <div class="load-chart reveal" role="img" aria-label="Относительная нагрузка по неделям: рост 1–3, разгрузка на неделе 4, пик на неделе 5, контроль на неделе 6">
+          <div class="load-chart-head"><span>Нагрузка по неделям</span><span class="load-chart-note">неделя 4 — разгрузка</span></div>
+          <div class="load-chart-bars">
+            <div class="load-bar" style="height:45%"></div>
+            <div class="load-bar" style="height:55%"></div>
+            <div class="load-bar" style="height:65%"></div>
+            <div class="load-bar deload" style="height:30%"></div>
+            <div class="load-bar" style="height:72%"></div>
+            <div class="load-bar" style="height:50%"></div>
+          </div>
+          <div class="load-chart-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+        </div>
         <div class="detail-week-list">
           <article class="detail-week reveal"><h3>Неделя 1 · Вход</h3><div><b>Вт</b><span>45 мин endurance: 3x8 мин 55–65% FTP, каденс 85–95 rpm.</span></div><div><b>Чт</b><span>50 мин техника: 6x1 мин spin-up 100–110 rpm, отдых 2 мин Z1.</span></div><div><b>Сб</b><span>60 мин Z2: 55–68% FTP, последние 10 мин максимально ровно.</span></div></article>
           <article class="detail-week reveal"><h3>Неделя 2 · Tempo</h3><div><b>Вт</b><span>50 мин: 3x6 мин 76–82% FTP, отдых 4 мин Z1.</span></div><div><b>Чт</b><span>45 мин recovery + каденс: 4x3 мин 95–100 rpm на 60% FTP.</span></div><div><b>Сб</b><span>70 мин endurance: 60–70% FTP, питание каждые 25–30 мин.</span></div></article>
@@ -1613,6 +1625,18 @@ export const pages = {
       <div class="plan-detail-main">
         <h2 class="reveal">Ориентиры усилия</h2>
         <p class="reveal">Если нет пульсометра, используйте RPE: Z2 = можно говорить фразами, tempo = говорить короткими фразами, подъёмный интервал = говорить уже сложно. Любой выезд переносится, если плохая погода или накопилась усталость.</p>
+        <div class="load-chart reveal" role="img" aria-label="Относительная нагрузка по неделям: рост 1–3, разгрузка на неделе 4, пик на неделе 5, контроль на неделе 6">
+          <div class="load-chart-head"><span>Нагрузка по неделям</span><span class="load-chart-note">неделя 4 — разгрузка</span></div>
+          <div class="load-chart-bars">
+            <div class="load-bar" style="height:40%"></div>
+            <div class="load-bar" style="height:55%"></div>
+            <div class="load-bar" style="height:65%"></div>
+            <div class="load-bar deload" style="height:32%"></div>
+            <div class="load-bar" style="height:70%"></div>
+            <div class="load-bar" style="height:55%"></div>
+          </div>
+          <div class="load-chart-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+        </div>
         <div class="detail-week-list">
           <article class="detail-week reveal"><h3>Неделя 1 · Безопасность</h3><div><b>Вт</b><span>45 мин легко: торможение, переключения, посадка, RPE 3.</span></div><div><b>Чт</b><span>50 мин ровно: 4x3 мин каденс выше обычной, без закисления.</span></div><div><b>Сб</b><span>60 мин Z2, маршрут без сложных перекрёстков.</span></div></article>
           <article class="detail-week reveal"><h3>Неделя 2 · Длиннее</h3><div><b>Вт</b><span>50 мин: 3x5 мин устойчивый темп RPE 5, отдых легко.</span></div><div><b>Чт</b><span>45 мин техника поворотов и езды одной рукой на безопасном участке.</span></div><div><b>Вс</b><span>75 мин endurance, еда/вода по расписанию.</span></div></article>
@@ -1646,7 +1670,7 @@ export const pages = {
     html: `<main>
 
   <section class="d-hero">
-    <div class="d-hero-photo"><img src="assets/wikimedia/cyclists-on-the-valley-preferred-cycling-center-track.jpg" alt="Велосипедисты на велодроме"></div>
+    <div class="d-hero-photo"><img src="assets/flickr/road-bike-on-indoor-trainer-2.jpg" alt="Велосипед на роликовом станке для интервальной тренировки дома"></div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal"><a href="/training-plans">Планы тренировок</a> / <span>Средний уровень · станок</span></div>
       <span class="idx-big mono">PLAN 03 · POWER</span>
@@ -1661,6 +1685,18 @@ export const pages = {
       <div class="plan-detail-main">
         <h2 class="reveal">Структура недели</h2>
         <p class="reveal">Два качественных дня, один endurance, один recovery. Если неделя тяжёлая по работе или сну, первым делом убирайте VO2max, а не лёгкую выносливость.</p>
+        <div class="load-chart reveal" role="img" aria-label="Относительная нагрузка по неделям: рост 1–3, разгрузка на неделе 4, пик на неделе 5, контроль/тест на неделе 6">
+          <div class="load-chart-head"><span>Нагрузка по неделям</span><span class="load-chart-note">неделя 4 — разгрузка</span></div>
+          <div class="load-chart-bars">
+            <div class="load-bar" style="height:60%"></div>
+            <div class="load-bar" style="height:70%"></div>
+            <div class="load-bar" style="height:78%"></div>
+            <div class="load-bar deload" style="height:35%"></div>
+            <div class="load-bar" style="height:85%"></div>
+            <div class="load-bar" style="height:45%"></div>
+          </div>
+          <div class="load-chart-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+        </div>
         <div class="detail-week-list">
           <article class="detail-week reveal"><h3>Неделя 1 · Sweet Spot</h3><div><b>Вт</b><span>2x12 мин 88–92% FTP, отдых 6 мин.</span></div><div><b>Ср</b><span>45 мин recovery до 55% FTP.</span></div><div><b>Чт</b><span>3x8 мин tempo 82–87% FTP с высоким каденсом.</span></div><div><b>Сб</b><span>85 мин Z2 60–72% FTP.</span></div></article>
           <article class="detail-week reveal"><h3>Неделя 2 · VO2 вход</h3><div><b>Вт</b><span>3x10 мин 90–94% FTP, отдых 5 мин.</span></div><div><b>Ср</b><span>40 мин easy spin.</span></div><div><b>Чт</b><span>5x2 мин 110–115% FTP, отдых 3 мин.</span></div><div><b>Сб</b><span>90 мин Z2, последние 20 мин 75% FTP.</span></div></article>
@@ -1694,7 +1730,7 @@ export const pages = {
     html: `<main>
 
   <section class="d-hero">
-    <div class="d-hero-photo"><img src="assets/wikimedia/tdf-2022-tuzaguet-arri-re-du-peloton.jpg" alt="Пелотон шоссейных велосипедистов"></div>
+    <div class="d-hero-photo"><img src="assets/wikimedia/silhouette-of-a-pack-of-cyclists.jpg" alt="Группа шоссейных велосипедистов едет плотной группой на закате"></div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal"><a href="/training-plans">Планы тренировок</a> / <span>Средний уровень · улица</span></div>
       <span class="idx-big mono">PLAN 04 · ROAD BUILD</span>
@@ -1709,6 +1745,18 @@ export const pages = {
       <div class="plan-detail-main">
         <h2 class="reveal">Как выполнять на улице</h2>
         <p class="reveal">Выберите безопасные участки: ровный отрезок для tempo, подъём 3–6 минут для VO2 и круг без светофоров для endurance. Если есть мощемер, используйте те же зоны FTP; если нет, ориентируйтесь по RPE и дыханию.</p>
+        <div class="load-chart reveal" role="img" aria-label="Относительная нагрузка по неделям: рост 1–3, разгрузка на неделе 4, пик на неделе 5, контрольный маршрут на неделе 6">
+          <div class="load-chart-head"><span>Нагрузка по неделям</span><span class="load-chart-note">неделя 4 — разгрузка</span></div>
+          <div class="load-chart-bars">
+            <div class="load-bar" style="height:55%"></div>
+            <div class="load-bar" style="height:68%"></div>
+            <div class="load-bar" style="height:78%"></div>
+            <div class="load-bar deload" style="height:33%"></div>
+            <div class="load-bar" style="height:88%"></div>
+            <div class="load-bar" style="height:50%"></div>
+          </div>
+          <div class="load-chart-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+        </div>
         <div class="detail-week-list">
           <article class="detail-week reveal"><h3>Неделя 1 · Ровный темп</h3><div><b>Вт</b><span>2x15 мин tempo RPE 6, отдых 8 мин легко.</span></div><div><b>Чт</b><span>60 мин Z2 + 6 ускорений по 10 сек.</span></div><div><b>Сб</b><span>2 часа endurance, без гонки за средней.</span></div></article>
           <article class="detail-week reveal"><h3>Неделя 2 · Подъёмы</h3><div><b>Вт</b><span>5 подъёмов по 3 мин RPE 8, спуск восстановление.</span></div><div><b>Чт</b><span>75 мин tempo: 3x10 мин RPE 6.</span></div><div><b>Вс</b><span>2–2.5 часа Z2, питание 40–70 г углеводов/ч.</span></div></article>
