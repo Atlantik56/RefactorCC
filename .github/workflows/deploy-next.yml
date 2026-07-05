@@ -1,10 +1,9 @@
-name: Deploy React/Vite branch to GitHub Pages
+name: Deploy Next static export to GitHub Pages
 
 on:
   push:
     branches:
       - main
-      - codex/react-vite-migration
   workflow_dispatch:
 
 permissions:
@@ -47,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: out
 
   deploy:
     needs: build

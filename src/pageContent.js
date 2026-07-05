@@ -2,9 +2,9 @@ export const pages = {
   home: {
     key: 'home',
     nav: 'home',
-    title: `Refactor Cycling Club — Велоспорт без компромиссов`,
-    description: `Refactor Cycling Club — статический сайт велосипедного клуба с дисциплинами, маршрутами, профилями высот и тренировочным CTA.`,
-    ogTitle: `Refactor Cycling Club — Велоспорт без компромиссов`,
+    title: `VeloCore — Велоспорт без компромиссов`,
+    description: `VeloCore — статический сайт велосипедного клуба с дисциплинами, маршрутами, профилями высот и тренировочным CTA.`,
+    ogTitle: `VeloCore — Велоспорт без компромиссов`,
     ogDescription: `Дисциплины, маршруты с профилем высот и сообщество райдеров для сезона 2026.`,
     html: `<main id="top">
 
@@ -31,7 +31,7 @@ export const pages = {
           Начать тренироваться
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="routes.html" class="btn btn-ghost">Смотреть маршруты</a>
+        <a href="/routes" class="btn btn-ghost">Смотреть маршруты</a>
       </div>
 
       <div class="climb-wrap">
@@ -101,7 +101,7 @@ export const pages = {
       </div>
 
       <div class="disciplines-grid stagger">
-        <div class="discipline reveal" data-href="road.html" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Шоссе">
+        <div class="discipline reveal" data-href="/road" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Шоссе">
           <div class="discipline-photo">
             <img src="assets/wikimedia/tdf-2022-tuzaguet-arri-re-du-peloton.jpg" alt="Пелотон шоссейных велогонщиков на асфальтовой дороге" loading="lazy">
             <span class="idx mono">D—01</span>
@@ -116,7 +116,7 @@ export const pages = {
             </span>
           </div>
         </div>
-        <div class="discipline reveal" data-href="track.html" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Трек">
+        <div class="discipline reveal" data-href="/track" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Трек">
           <div class="discipline-photo">
             <img src="assets/wikimedia/cyclists-on-the-valley-preferred-cycling-center-track.jpg" alt="Велосипедисты на велодроме" loading="lazy">
             <span class="idx mono">D—02</span>
@@ -131,7 +131,7 @@ export const pages = {
             </span>
           </div>
         </div>
-        <div class="discipline reveal" data-href="mtb.html" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Маунтинбайк">
+        <div class="discipline reveal" data-href="/mtb" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Маунтинбайк">
           <div class="discipline-photo">
             <img src="assets/wikimedia/cross-country-biker.jpg" alt="Райдер на маунтинбайке на лесной тропе" loading="lazy">
             <span class="idx mono">D—03</span>
@@ -146,7 +146,7 @@ export const pages = {
             </span>
           </div>
         </div>
-        <div class="discipline reveal" data-href="gravel.html" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Гравел">
+        <div class="discipline reveal" data-href="/gravel" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Гравел">
           <div class="discipline-photo">
             <img src="assets/wikimedia/cyclist-on-gravel-bike-descending-eldridge-grade.jpg" alt="Велосипедист на гравийном велосипеде на грунтовой дороге" loading="lazy">
             <span class="idx mono">D—04</span>
@@ -161,7 +161,7 @@ export const pages = {
             </span>
           </div>
         </div>
-        <div class="discipline reveal" data-href="cyclocross.html" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Циклокросс">
+        <div class="discipline reveal" data-href="/cyclocross" tabindex="0" role="link" aria-label="Открыть страницу дисциплины Циклокросс">
           <div class="discipline-photo">
             <img src="assets/wikimedia/toronto-cyclocross-2010-5090881203.jpg" alt="Гонщик на трассе циклокросса" loading="lazy">
             <span class="idx mono">D—05</span>
@@ -176,7 +176,7 @@ export const pages = {
             </span>
           </div>
         </div>
-        <div class="discipline reveal" data-href="bmx.html" tabindex="0" role="link" aria-label="Открыть страницу дисциплины BMX">
+        <div class="discipline reveal" data-href="/bmx" tabindex="0" role="link" aria-label="Открыть страницу дисциплины BMX">
           <div class="discipline-photo">
             <img src="assets/wikimedia/bmx-racing-action-photo.jpg" alt="Гонщик BMX в прыжке" loading="lazy">
             <span class="idx mono">D—06</span>
@@ -221,7 +221,7 @@ export const pages = {
         <h2>Маршруты с честным<br>профилем высот</h2>
         <p>Каждый маршрут в каталоге размечен по километражу и уклону — без сюрпризов на последнем километре. Фильтруй по сложности, покрытию и региону.</p>
         <p>Более 340 проверенных маршрутов от сообщества: от равнинных покатушек до горных серпантинов.</p>
-        <a href="routes.html" class="btn btn-ghost">Открыть каталог маршрутов
+        <a href="/routes" class="btn btn-ghost">Открыть каталог маршрутов
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -233,7 +233,7 @@ export const pages = {
     <div class="wrap">
       <div class="section-head reveal">
         <h2>Голос пелотона</h2>
-        <p>Что говорят райдеры, которые уже тренируются с нами. <a href="community.html" style="color:var(--accent); white-space:nowrap;">Всё о комьюнити →</a></p>
+        <p>Что говорят райдеры, которые уже тренируются с нами. <a href="/community" style="color:var(--accent); white-space:nowrap;">Всё о комьюнити →</a></p>
       </div>
       <div class="quotes stagger">
         <div class="quote reveal">
@@ -270,11 +270,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
       <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
       <p>Оставьте почту — пришлём вводный тренировочный план и подборку маршрутов рядом с вами.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -283,9 +283,9 @@ export const pages = {
   routes: {
     key: 'routes',
     nav: 'routes',
-    title: `Маршруты — Refactor Cycling Club`,
-    description: `Каталог велосипедных маршрутов Refactor Cycling Club с километражом, набором высоты, покрытием и уровнем сложности.`,
-    ogTitle: `Маршруты — Refactor Cycling Club`,
+    title: `Маршруты — VeloCore`,
+    description: `Каталог велосипедных маршрутов VeloCore с километражом, набором высоты, покрытием и уровнем сложности.`,
+    ogTitle: `Маршруты — VeloCore`,
     ogDescription: `Проверенные маршруты для шоссе, гравела и городских поездок с честным профилем высот.`,
     html: `<main>
 
@@ -296,7 +296,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <span>Маршруты</span>
+        <a href="/">Главная</a> / <span>Маршруты</span>
       </div>
       <span class="idx-big mono">КАТАЛОГ · 340+ МАРШРУТОВ</span>
       <h1>Маршруты</h1>
@@ -402,7 +402,7 @@ export const pages = {
         <h2>Как мы размечаем маршруты</h2>
         <p>Каждый маршрут проезжает и проверяет вручную кто-то из сообщества: фиксируем точный профиль высот, отмечаем опасные участки и сезонные ограничения.</p>
         <p>На каждой странице маршрута — интерактивный профиль подъёма с цветовой кодировкой по крутизне, точки для воды и еды, а также рекомендации по типу покрышек.</p>
-        <a href="index.html#join" class="btn btn-primary">Получить доступ к каталогу
+        <a href="/#join" class="btn btn-primary">Получить доступ к каталогу
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -424,11 +424,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Каталог открыт</span>
       <h2 style="margin-top:16px;">Найдите свой следующий маршрут</h2>
       <p>Оставьте почту — пришлём подборку маршрутов рядом с вами и доступ к полному каталогу.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -448,9 +448,9 @@ export const pages = {
   community: {
     key: 'community',
     nav: 'community',
-    title: `Комьюнити — Refactor Cycling Club`,
-    description: `Комьюнити Refactor Cycling Club: групповые тренировки, ценности клуба, расписание и форма команды.`,
-    ogTitle: `Комьюнити — Refactor Cycling Club`,
+    title: `Комьюнити — VeloCore`,
+    description: `Комьюнити VeloCore: групповые тренировки, ценности клуба, расписание и форма команды.`,
+    ogTitle: `Комьюнити — VeloCore`,
     ogDescription: `Живое велосипедное сообщество с тренировками, групповыми выездами и клубной культурой.`,
     html: `<main>
 
@@ -462,7 +462,7 @@ export const pages = {
     <div class="wrap c-hero-inner">
       <span class="eyebrow reveal">120+ райдеров · старт в 2026</span>
       <h1 style="margin-top:16px;">Комьюнити</h1>
-      <p class="sub">Refactor Cycling Club — это не только тренировочные планы. Это люди, с которыми вы выезжаете по субботам, делитесь маршрутами и празднуете личные рекорды.</p>
+      <p class="sub">VeloCore — это не только тренировочные планы. Это люди, с которыми вы выезжаете по субботам, делитесь маршрутами и празднуете личные рекорды.</p>
     </div>
   </section>
 
@@ -533,16 +533,16 @@ export const pages = {
           <div class="ig-carousel" data-caption-target="kitCaption">
             <div class="ig-track">
               <div class="ig-slide" data-caption="<strong>Runtime</strong> — тёмно-синяя база и бирюзовые полосы «потока данных»: будто лог выполнения прямо на спине.">
-                <img src="assets/kit-showcase-1.png" alt="Форма Refactor Cycling Club, версия Runtime — тёмно-синее джерси с бирюзовым цифровым узором">
+                <img src="assets/kit-showcase-1.png" alt="Форма VeloCore, версия Runtime — тёмно-синее джерси с бирюзовым цифровым узором">
               </div>
               <div class="ig-slide" data-caption="<strong>Architecture</strong> — светлая версия с чертежом системы: базы данных, API и модули связаны линиями прямо на джерси.">
-                <img src="assets/kit-showcase-2.png" alt="Форма Refactor Cycling Club, версия Architecture — белое джерси со схемой архитектуры системы">
+                <img src="assets/kit-showcase-2.png" alt="Форма VeloCore, версия Architecture — белое джерси со схемой архитектуры системы">
               </div>
               <div class="ig-slide" data-caption="<strong>Terminal</strong> — чёрная форма со столбцом кода вдоль спины и печатной платой на рукавах: вечерний вариант клуба.">
-                <img src="assets/kit-showcase-3.png" alt="Форма Refactor Cycling Club, версия Terminal — чёрное джерси с кодом на спине и узором печатной платы на рукавах">
+                <img src="assets/kit-showcase-3.png" alt="Форма VeloCore, версия Terminal — чёрное джерси с кодом на спине и узором печатной платы на рукавах">
               </div>
               <div class="ig-slide" data-caption="<strong>Architecture RoadSuit</strong> — светлая версия с чертежом системы: базы данных, API и модули связаны линиями прямо на велокомбинезоне для шоссейных гонок.">
-                <img src="assets/kit-showcase-4.png" alt="Форма Refactor Cycling Club, версия Architecture RoadSuit — светлый шоссейный велокомбинезон со схемой архитектуры системы">
+                <img src="assets/kit-showcase-4.png" alt="Форма VeloCore, версия Architecture RoadSuit — светлый шоссейный велокомбинезон со схемой архитектуры системы">
               </div>
             </div>
             <button class="ig-nav prev" aria-label="Предыдущий вариант">‹</button>
@@ -642,11 +642,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Присоединяйтесь</span>
       <h2 style="margin-top:16px;">Первый заезд — за нами</h2>
       <p>Оставьте почту — пришлём расписание ближайших групповых заездов в вашем городе.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -655,9 +655,9 @@ export const pages = {
   road: {
     key: 'road',
     nav: 'disciplines',
-    title: `Шоссе — Refactor Cycling Club`,
-    description: `Шоссейный велоспорт в Refactor Cycling Club: групповые заезды, выносливость, тактика пелотона и тренировочный подход.`,
-    ogTitle: `Шоссе — Refactor Cycling Club`,
+    title: `Шоссе — VeloCore`,
+    description: `Шоссейный велоспорт в VeloCore: групповые заезды, выносливость, тактика пелотона и тренировочный подход.`,
+    ogTitle: `Шоссе — VeloCore`,
     ogDescription: `Страница дисциплины шоссе: с чего начать, что понадобится и как строить тренировки.`,
     html: `<main>
 
@@ -668,7 +668,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>Шоссе</span>
+        <a href="/">Главная</a> / <a href="/#disciplines">Дисциплины</a> / <span>Шоссе</span>
       </div>
       <span class="idx-big mono">D—01 · ДИСЦИПЛИНА</span>
       <h1>Шоссе</h1>
@@ -721,7 +721,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Велокомпьютер с пульсометром</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Ремкомплект и запасная камера</li>
         </ul>
-        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+        <a href="/#join" class="btn btn-primary">Получить план тренировок</a>
       </aside>
     </div>
   </section>
@@ -734,11 +734,11 @@ export const pages = {
         <p>Попробуйте себя в другом формате.</p>
       </div>
       <div class="d-others-grid">
-        <a class="d-other" href="track.html"><span>D—02</span>Трек</a>
-        <a class="d-other" href="mtb.html"><span>D—03</span>Маунтинбайк</a>
-        <a class="d-other" href="gravel.html"><span>D—04</span>Гравел</a>
-        <a class="d-other" href="cyclocross.html"><span>D—05</span>Циклокросс</a>
-        <a class="d-other" href="bmx.html"><span>D—06</span>BMX</a>
+        <a class="d-other" href="/track"><span>D—02</span>Трек</a>
+        <a class="d-other" href="/mtb"><span>D—03</span>Маунтинбайк</a>
+        <a class="d-other" href="/gravel"><span>D—04</span>Гравел</a>
+        <a class="d-other" href="/cyclocross"><span>D—05</span>Циклокросс</a>
+        <a class="d-other" href="/bmx"><span>D—06</span>BMX</a>
       </div>
     </div>
   </section>
@@ -749,11 +749,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
       <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
       <p>Оставьте почту — пришлём вводный тренировочный план по шоссе и подборку маршрутов рядом с вами.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -762,9 +762,9 @@ export const pages = {
   track: {
     key: 'track',
     nav: 'disciplines',
-    title: `Трек — Refactor Cycling Club`,
-    description: `Трековый велоспорт в Refactor Cycling Club: спринты на велодроме, фиксированная передача, техника и тактика.`,
-    ogTitle: `Трек — Refactor Cycling Club`,
+    title: `Трек — VeloCore`,
+    description: `Трековый велоспорт в VeloCore: спринты на велодроме, фиксированная передача, техника и тактика.`,
+    ogTitle: `Трек — VeloCore`,
     ogDescription: `Страница дисциплины трек: формат, стартовые советы, экипировка и тренировки.`,
     html: `<main>
 
@@ -775,7 +775,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>Трек</span>
+        <a href="/">Главная</a> / <a href="/#disciplines">Дисциплины</a> / <span>Трек</span>
       </div>
       <span class="idx-big mono">D—02 · ДИСЦИПЛИНА</span>
       <h1>Трек</h1>
@@ -828,7 +828,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Контактные педали</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Перчатки</li>
         </ul>
-        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+        <a href="/#join" class="btn btn-primary">Получить план тренировок</a>
       </aside>
     </div>
   </section>
@@ -841,11 +841,11 @@ export const pages = {
         <p>Попробуйте себя в другом формате.</p>
       </div>
       <div class="d-others-grid">
-        <a class="d-other" href="road.html"><span>D—01</span>Шоссе</a>
-        <a class="d-other" href="mtb.html"><span>D—03</span>Маунтинбайк</a>
-        <a class="d-other" href="gravel.html"><span>D—04</span>Гравел</a>
-        <a class="d-other" href="cyclocross.html"><span>D—05</span>Циклокросс</a>
-        <a class="d-other" href="bmx.html"><span>D—06</span>BMX</a>
+        <a class="d-other" href="/road"><span>D—01</span>Шоссе</a>
+        <a class="d-other" href="/mtb"><span>D—03</span>Маунтинбайк</a>
+        <a class="d-other" href="/gravel"><span>D—04</span>Гравел</a>
+        <a class="d-other" href="/cyclocross"><span>D—05</span>Циклокросс</a>
+        <a class="d-other" href="/bmx"><span>D—06</span>BMX</a>
       </div>
     </div>
   </section>
@@ -856,11 +856,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
       <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
       <p>Оставьте почту — пришлём вводный тренировочный план по треку и расписание открытых заездов.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -869,9 +869,9 @@ export const pages = {
   mtb: {
     key: 'mtb',
     nav: 'disciplines',
-    title: `Маунтинбайк — Refactor Cycling Club`,
-    description: `Маунтинбайк в Refactor Cycling Club: лесные тропы, техника контроля, кросс-кантри, эндуро и тренировки.`,
-    ogTitle: `Маунтинбайк — Refactor Cycling Club`,
+    title: `Маунтинбайк — VeloCore`,
+    description: `Маунтинбайк в VeloCore: лесные тропы, техника контроля, кросс-кантри, эндуро и тренировки.`,
+    ogTitle: `Маунтинбайк — VeloCore`,
     ogDescription: `Страница дисциплины MTB: снаряжение, техника и план развития райдера.`,
     html: `<main>
 
@@ -882,7 +882,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>Маунтинбайк</span>
+        <a href="/">Главная</a> / <a href="/#disciplines">Дисциплины</a> / <span>Маунтинбайк</span>
       </div>
       <span class="idx-big mono">D—03 · ДИСЦИПЛИНА</span>
       <h1>Маунтинбайк</h1>
@@ -935,7 +935,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Контактные или платформенные педали</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Гидратор или флягодержатель</li>
         </ul>
-        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+        <a href="/#join" class="btn btn-primary">Получить план тренировок</a>
       </aside>
     </div>
   </section>
@@ -948,11 +948,11 @@ export const pages = {
         <p>Попробуйте себя в другом формате.</p>
       </div>
       <div class="d-others-grid">
-        <a class="d-other" href="road.html"><span>D—01</span>Шоссе</a>
-        <a class="d-other" href="track.html"><span>D—02</span>Трек</a>
-        <a class="d-other" href="gravel.html"><span>D—04</span>Гравел</a>
-        <a class="d-other" href="cyclocross.html"><span>D—05</span>Циклокросс</a>
-        <a class="d-other" href="bmx.html"><span>D—06</span>BMX</a>
+        <a class="d-other" href="/road"><span>D—01</span>Шоссе</a>
+        <a class="d-other" href="/track"><span>D—02</span>Трек</a>
+        <a class="d-other" href="/gravel"><span>D—04</span>Гравел</a>
+        <a class="d-other" href="/cyclocross"><span>D—05</span>Циклокросс</a>
+        <a class="d-other" href="/bmx"><span>D—06</span>BMX</a>
       </div>
     </div>
   </section>
@@ -963,11 +963,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
       <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
       <p>Оставьте почту — пришлём подборку трейлов рядом с вами и вводный план по технике.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -976,9 +976,9 @@ export const pages = {
   gravel: {
     key: 'gravel',
     nav: 'disciplines',
-    title: `Гравел — Refactor Cycling Club`,
-    description: `Гравел в Refactor Cycling Club: смешанное покрытие, дальние маршруты, приключенческий формат и подготовка.`,
-    ogTitle: `Гравел — Refactor Cycling Club`,
+    title: `Гравел — VeloCore`,
+    description: `Гравел в VeloCore: смешанное покрытие, дальние маршруты, приключенческий формат и подготовка.`,
+    ogTitle: `Гравел — VeloCore`,
     ogDescription: `Страница дисциплины гравел: маршруты, снаряжение и тренировочный подход для смешанного покрытия.`,
     html: `<main>
 
@@ -989,7 +989,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>Гравел</span>
+        <a href="/">Главная</a> / <a href="/#disciplines">Дисциплины</a> / <span>Гравел</span>
       </div>
       <span class="idx-big mono">D—04 · ДИСЦИПЛИНА</span>
       <h1>Гравел</h1>
@@ -1042,7 +1042,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Навигатор или велокомпьютер с картами</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Ремкомплект расширенного состава</li>
         </ul>
-        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+        <a href="/#join" class="btn btn-primary">Получить план тренировок</a>
       </aside>
     </div>
   </section>
@@ -1055,11 +1055,11 @@ export const pages = {
         <p>Попробуйте себя в другом формате.</p>
       </div>
       <div class="d-others-grid">
-        <a class="d-other" href="road.html"><span>D—01</span>Шоссе</a>
-        <a class="d-other" href="track.html"><span>D—02</span>Трек</a>
-        <a class="d-other" href="mtb.html"><span>D—03</span>Маунтинбайк</a>
-        <a class="d-other" href="cyclocross.html"><span>D—05</span>Циклокросс</a>
-        <a class="d-other" href="bmx.html"><span>D—06</span>BMX</a>
+        <a class="d-other" href="/road"><span>D—01</span>Шоссе</a>
+        <a class="d-other" href="/track"><span>D—02</span>Трек</a>
+        <a class="d-other" href="/mtb"><span>D—03</span>Маунтинбайк</a>
+        <a class="d-other" href="/cyclocross"><span>D—05</span>Циклокросс</a>
+        <a class="d-other" href="/bmx"><span>D—06</span>BMX</a>
       </div>
     </div>
   </section>
@@ -1070,11 +1070,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
       <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
       <p>Оставьте почту — пришлём подборку гравел-маршрутов и список снаряжения для дальних выездов.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -1083,9 +1083,9 @@ export const pages = {
   cyclocross: {
     key: 'cyclocross',
     nav: 'disciplines',
-    title: `Циклокросс — Refactor Cycling Club`,
-    description: `Циклокросс в Refactor Cycling Club: короткие круги, грязь, барьеры, техника и взрывная выносливость.`,
-    ogTitle: `Циклокросс — Refactor Cycling Club`,
+    title: `Циклокросс — VeloCore`,
+    description: `Циклокросс в VeloCore: короткие круги, грязь, барьеры, техника и взрывная выносливость.`,
+    ogTitle: `Циклокросс — VeloCore`,
     ogDescription: `Страница дисциплины циклокросс: формат гонок, экипировка и подготовка.`,
     html: `<main>
 
@@ -1096,7 +1096,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>Циклокросс</span>
+        <a href="/">Главная</a> / <a href="/#disciplines">Дисциплины</a> / <span>Циклокросс</span>
       </div>
       <span class="idx-big mono">D—05 · ДИСЦИПЛИНА</span>
       <h1>Циклокросс</h1>
@@ -1149,7 +1149,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Перчатки и грязезащитная одежда</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Второй комплект формы на смену</li>
         </ul>
-        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+        <a href="/#join" class="btn btn-primary">Получить план тренировок</a>
       </aside>
     </div>
   </section>
@@ -1162,11 +1162,11 @@ export const pages = {
         <p>Попробуйте себя в другом формате.</p>
       </div>
       <div class="d-others-grid">
-        <a class="d-other" href="road.html"><span>D—01</span>Шоссе</a>
-        <a class="d-other" href="track.html"><span>D—02</span>Трек</a>
-        <a class="d-other" href="mtb.html"><span>D—03</span>Маунтинбайк</a>
-        <a class="d-other" href="gravel.html"><span>D—04</span>Гравел</a>
-        <a class="d-other" href="bmx.html"><span>D—06</span>BMX</a>
+        <a class="d-other" href="/road"><span>D—01</span>Шоссе</a>
+        <a class="d-other" href="/track"><span>D—02</span>Трек</a>
+        <a class="d-other" href="/mtb"><span>D—03</span>Маунтинбайк</a>
+        <a class="d-other" href="/gravel"><span>D—04</span>Гравел</a>
+        <a class="d-other" href="/bmx"><span>D—06</span>BMX</a>
       </div>
     </div>
   </section>
@@ -1177,11 +1177,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
       <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
       <p>Оставьте почту — пришлём вводный план по циклокроссу и календарь ближайших стартов.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -1190,9 +1190,9 @@ export const pages = {
   bmx: {
     key: 'bmx',
     nav: 'disciplines',
-    title: `BMX — Refactor Cycling Club`,
-    description: `BMX в Refactor Cycling Club: прыжки, рампы, контроль велосипеда и динамичные тренировки.`,
-    ogTitle: `BMX — Refactor Cycling Club`,
+    title: `BMX — VeloCore`,
+    description: `BMX в VeloCore: прыжки, рампы, контроль велосипеда и динамичные тренировки.`,
+    ogTitle: `BMX — VeloCore`,
     ogDescription: `Страница дисциплины BMX: техника, безопасность, снаряжение и первые тренировки.`,
     html: `<main>
 
@@ -1203,7 +1203,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <a href="index.html#disciplines">Дисциплины</a> / <span>BMX</span>
+        <a href="/">Главная</a> / <a href="/#disciplines">Дисциплины</a> / <span>BMX</span>
       </div>
       <span class="idx-big mono">D—06 · ДИСЦИПЛИНА</span>
       <h1>BMX</h1>
@@ -1256,7 +1256,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Перчатки с защитой ладони</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Прочная закрытая обувь</li>
         </ul>
-        <a href="index.html#join" class="btn btn-primary">Получить план тренировок</a>
+        <a href="/#join" class="btn btn-primary">Получить план тренировок</a>
       </aside>
     </div>
   </section>
@@ -1269,11 +1269,11 @@ export const pages = {
         <p>Попробуйте себя в другом формате.</p>
       </div>
       <div class="d-others-grid">
-        <a class="d-other" href="road.html"><span>D—01</span>Шоссе</a>
-        <a class="d-other" href="track.html"><span>D—02</span>Трек</a>
-        <a class="d-other" href="mtb.html"><span>D—03</span>Маунтинбайк</a>
-        <a class="d-other" href="gravel.html"><span>D—04</span>Гравел</a>
-        <a class="d-other" href="cyclocross.html"><span>D—05</span>Циклокросс</a>
+        <a class="d-other" href="/road"><span>D—01</span>Шоссе</a>
+        <a class="d-other" href="/track"><span>D—02</span>Трек</a>
+        <a class="d-other" href="/mtb"><span>D—03</span>Маунтинбайк</a>
+        <a class="d-other" href="/gravel"><span>D—04</span>Гравел</a>
+        <a class="d-other" href="/cyclocross"><span>D—05</span>Циклокросс</a>
       </div>
     </div>
   </section>
@@ -1284,11 +1284,11 @@ export const pages = {
       <span class="eyebrow" style="justify-content:center;">Старт открыт</span>
       <h2 style="margin-top:16px;">Готовы выйти на старт?</h2>
       <p>Оставьте почту — пришлём расписание открытых тренировок в BMX-парке и вводный план.</p>
-      <form class="cta-form" id="joinForm">
-        <input type="email" placeholder="you@mail.ru" required id="joinEmail">
+      <form class="cta-form">
+        <input type="email" placeholder="you@mail.ru" required>
         <button type="submit" class="btn btn-primary">Присоединиться</button>
       </form>
-      <div class="cta-note" id="joinNote">Без спама. Один тренировочный план в неделю.</div>
+      <div class="cta-note">Без спама. Один тренировочный план в неделю.</div>
     </div>
   </section>
 
@@ -1297,10 +1297,10 @@ export const pages = {
   news: {
     key: 'news',
     nav: 'news',
-    title: `Новости — Refactor Cycling Club`,
-    description: `Новости Refactor Cycling Club: заезды, тренировки, маршруты недели и обновления сообщества.`,
-    ogTitle: `Новости — Refactor Cycling Club`,
-    ogDescription: `Лента новостей Refactor Cycling Club: события, маршруты и обновления сезона 2026.`,
+    title: `Новости — VeloCore`,
+    description: `Новости VeloCore: заезды, тренировки, маршруты недели и обновления сообщества.`,
+    ogTitle: `Новости — VeloCore`,
+    ogDescription: `Лента новостей VeloCore: события, маршруты и обновления сезона 2026.`,
     html: `<main>
 
   <section class="d-hero">
@@ -1309,7 +1309,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <span>Новости</span>
+        <a href="/">Главная</a> / <span>Новости</span>
       </div>
       <span class="idx-big mono">NEWS · СЕЗОН 2026</span>
       <h1>Новости клуба</h1>
@@ -1363,9 +1363,9 @@ export const pages = {
   trainingPlans: {
     key: 'trainingPlans',
     nav: 'trainingPlans',
-    title: `Планы тренировок — Refactor Cycling Club`,
-    description: `Планы тренировок Refactor Cycling Club для шоссейного велоспорта: 6-недельные программы для новичка и среднего уровня, станок и улица.`,
-    ogTitle: `Планы тренировок — Refactor Cycling Club`,
+    title: `Планы тренировок — VeloCore`,
+    description: `Планы тренировок VeloCore для шоссейного велоспорта: 6-недельные программы для новичка и среднего уровня, станок и улица.`,
+    ogTitle: `Планы тренировок — VeloCore`,
     ogDescription: `Оригинальные тренировочные планы в логике Zwift и TrainingPeaks: FTP-зоны, RPE, пульс, интервалы и восстановление.`,
     html: `<main>
 
@@ -1375,7 +1375,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="index.html">Главная</a> / <span>Планы тренировок</span>
+        <a href="/">Главная</a> / <span>Планы тренировок</span>
       </div>
       <span class="idx-big mono">TRAINING · ROAD</span>
       <h1>Планы тренировок</h1>
@@ -1423,7 +1423,7 @@ export const pages = {
               <div><b>5</b><span>3x8 мин tempo/sweet spot · endurance 75 мин</span></div>
               <div><b>6</b><span>контроль: 2x12 мин 85–90% FTP · лёгкий финал</span></div>
             </div>
-            <a href="/RefactorCC/training-plans/beginner-indoor" class="btn btn-ghost">Открыть подробный план</a>
+            <a href="/training-plans/beginner-indoor" class="btn btn-ghost">Открыть подробный план</a>
           </article>
 
           <article class="training-plan-card reveal">
@@ -1444,7 +1444,7 @@ export const pages = {
               <div><b>5</b><span>групповой endurance · 3x8 мин устойчивый темп</span></div>
               <div><b>6</b><span>90–120 мин Z2 · последние 20 мин ровно, без рывков</span></div>
             </div>
-            <a href="/RefactorCC/training-plans/beginner-road" class="btn btn-ghost">Открыть подробный план</a>
+            <a href="/training-plans/beginner-road" class="btn btn-ghost">Открыть подробный план</a>
           </article>
 
           <article class="training-plan-card reveal">
@@ -1465,7 +1465,7 @@ export const pages = {
               <div><b>5</b><span>4x8 мин 95–100% · 6x3 мин VO2 108–112%</span></div>
               <div><b>6</b><span>2x20 мин 88–92% · мини-ramp или 20-мин контроль</span></div>
             </div>
-            <a href="/RefactorCC/training-plans/intermediate-indoor" class="btn btn-ghost">Открыть подробный план</a>
+            <a href="/training-plans/intermediate-indoor" class="btn btn-ghost">Открыть подробный план</a>
           </article>
 
           <article class="training-plan-card reveal">
@@ -1486,7 +1486,7 @@ export const pages = {
               <div><b>5</b><span>2x20 мин устойчивый темп · 6 коротких ускорений</span></div>
               <div><b>6</b><span>контрольный маршрут 60–90 мин · ровный negative split</span></div>
             </div>
-            <a href="/RefactorCC/training-plans/intermediate-road" class="btn btn-ghost">Открыть подробный план</a>
+            <a href="/training-plans/intermediate-road" class="btn btn-ghost">Открыть подробный план</a>
           </article>
         </div>
 
@@ -1517,7 +1517,7 @@ export const pages = {
           <span>Z4: 95–105%</span>
           <span>Z5: 106–120%</span>
         </div>
-        <a href="index.html#join" class="btn btn-primary">Присоединиться к клубу</a>
+        <a href="/#join" class="btn btn-primary">Присоединиться к клубу</a>
       </aside>
     </div>
   </section>
@@ -1527,9 +1527,9 @@ export const pages = {
   beginnerIndoorPlan: {
     key: 'beginnerIndoorPlan',
     nav: 'trainingPlans',
-    title: `Новичок · станок — Refactor Cycling Club`,
+    title: `Новичок · станок — VeloCore`,
     description: `Подробный 6-недельный план для новичка на станке: FTP-зоны, каденс, endurance, tempo и разгрузка.`,
-    ogTitle: `Новичок · станок — Refactor Cycling Club`,
+    ogTitle: `Новичок · станок — VeloCore`,
     ogDescription: `6-недельная indoor-программа для первого структурного блока на смарт-станке.`,
     html: `<main>
 
@@ -1539,7 +1539,7 @@ export const pages = {
     </div>
     <div class="wrap d-hero-inner">
       <div class="breadcrumb reveal">
-        <a href="/RefactorCC/training-plans">Планы тренировок</a> / <span>Новичок · станок</span>
+        <a href="/training-plans">Планы тренировок</a> / <span>Новичок · станок</span>
       </div>
       <span class="idx-big mono">PLAN 01 · INDOOR</span>
       <h1>Новичок · станок</h1>
@@ -1569,7 +1569,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Пропуск недели: повторите её, не прыгайте дальше</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>FTP завышен, если Z2 не разговорная</li>
         </ul>
-        <a href="/RefactorCC/training-plans" class="btn btn-primary">Все планы</a>
+        <a href="/training-plans" class="btn btn-primary">Все планы</a>
       </aside>
     </div>
   </section>
@@ -1579,9 +1579,9 @@ export const pages = {
   beginnerRoadPlan: {
     key: 'beginnerRoadPlan',
     nav: 'trainingPlans',
-    title: `Новичок · улица — Refactor Cycling Club`,
+    title: `Новичок · улица — VeloCore`,
     description: `Подробный 6-недельный план для новичка на улице: RPE, пульс, техника группы, endurance и безопасная прогрессия.`,
-    ogTitle: `Новичок · улица — Refactor Cycling Club`,
+    ogTitle: `Новичок · улица — VeloCore`,
     ogDescription: `6-недельная road-программа без измерителя мощности: RPE, пульс, техника и endurance.`,
     html: `<main>
 
@@ -1590,7 +1590,7 @@ export const pages = {
       <img src="assets/wikimedia/cyclists-on-buttertubs-geograph-org-uk-2418147.jpg" alt="Велосипедисты на дороге с подъёмами">
     </div>
     <div class="wrap d-hero-inner">
-      <div class="breadcrumb reveal"><a href="/RefactorCC/training-plans">Планы тренировок</a> / <span>Новичок · улица</span></div>
+      <div class="breadcrumb reveal"><a href="/training-plans">Планы тренировок</a> / <span>Новичок · улица</span></div>
       <span class="idx-big mono">PLAN 02 · ROAD</span>
       <h1>Новичок · улица</h1>
       <p class="sub">6 недель для спокойного входа в шоссе: техника, базовая выносливость, первые подъёмы и уверенность в группе.</p>
@@ -1619,7 +1619,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>На длинные выезды: вода и 30–60 г углеводов/ч</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Не делайте интервалы в плотном трафике</li>
         </ul>
-        <a href="/RefactorCC/training-plans" class="btn btn-primary">Все планы</a>
+        <a href="/training-plans" class="btn btn-primary">Все планы</a>
       </aside>
     </div>
   </section>
@@ -1629,16 +1629,16 @@ export const pages = {
   intermediateIndoorPlan: {
     key: 'intermediateIndoorPlan',
     nav: 'trainingPlans',
-    title: `Средний уровень · станок — Refactor Cycling Club`,
+    title: `Средний уровень · станок — VeloCore`,
     description: `Подробный 6-недельный indoor-план среднего уровня: sweet spot, threshold, VO2max, over-under и контроль FTP.`,
-    ogTitle: `Средний уровень · станок — Refactor Cycling Club`,
+    ogTitle: `Средний уровень · станок — VeloCore`,
     ogDescription: `6-недельная indoor-программа для роста устойчивой мощности и VO2max.`,
     html: `<main>
 
   <section class="d-hero">
     <div class="d-hero-photo"><img src="assets/wikimedia/cyclists-on-the-valley-preferred-cycling-center-track.jpg" alt="Велосипедисты на велодроме"></div>
     <div class="wrap d-hero-inner">
-      <div class="breadcrumb reveal"><a href="/RefactorCC/training-plans">Планы тренировок</a> / <span>Средний уровень · станок</span></div>
+      <div class="breadcrumb reveal"><a href="/training-plans">Планы тренировок</a> / <span>Средний уровень · станок</span></div>
       <span class="idx-big mono">PLAN 03 · POWER</span>
       <h1>Средний уровень · станок</h1>
       <p class="sub">4 тренировки в неделю: sweet spot, over-under, VO2max и контрольная неделя. Для райдера, который уже выдерживает 2–3 часа Z2.</p>
@@ -1667,7 +1667,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Если пульс необычно высокий, снизьте FTP на 3–5%</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>После теста 2 дня только easy/recovery</li>
         </ul>
-        <a href="/RefactorCC/training-plans" class="btn btn-primary">Все планы</a>
+        <a href="/training-plans" class="btn btn-primary">Все планы</a>
       </aside>
     </div>
   </section>
@@ -1677,16 +1677,16 @@ export const pages = {
   intermediateRoadPlan: {
     key: 'intermediateRoadPlan',
     nav: 'trainingPlans',
-    title: `Средний уровень · улица — Refactor Cycling Club`,
+    title: `Средний уровень · улица — VeloCore`,
     description: `Подробный 6-недельный road-план среднего уровня: tempo, подъёмы, over-under на холмах, группа и контрольный маршрут.`,
-    ogTitle: `Средний уровень · улица — Refactor Cycling Club`,
+    ogTitle: `Средний уровень · улица — VeloCore`,
     ogDescription: `6-недельная уличная программа для устойчивого темпа, подъёмов и групповых заездов.`,
     html: `<main>
 
   <section class="d-hero">
     <div class="d-hero-photo"><img src="assets/wikimedia/tdf-2022-tuzaguet-arri-re-du-peloton.jpg" alt="Пелотон шоссейных велосипедистов"></div>
     <div class="wrap d-hero-inner">
-      <div class="breadcrumb reveal"><a href="/RefactorCC/training-plans">Планы тренировок</a> / <span>Средний уровень · улица</span></div>
+      <div class="breadcrumb reveal"><a href="/training-plans">Планы тренировок</a> / <span>Средний уровень · улица</span></div>
       <span class="idx-big mono">PLAN 04 · ROAD BUILD</span>
       <h1>Средний уровень · улица</h1>
       <p class="sub">Структурный road-блок для райдера с базой: tempo на ровном, подъёмы, групповой endurance и контрольный маршрут.</p>
@@ -1715,7 +1715,7 @@ export const pages = {
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Не делайте VO2 в плотной группе</li>
           <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>При плохой погоде переносите работу на станок</li>
         </ul>
-        <a href="/RefactorCC/training-plans" class="btn btn-primary">Все планы</a>
+        <a href="/training-plans" class="btn btn-primary">Все планы</a>
       </aside>
     </div>
   </section>
@@ -1726,29 +1726,18 @@ export const pages = {
 
 export const pathToPage = {
   '/': 'home',
-  '/index.html': 'home',
   '/routes': 'routes',
-  '/routes.html': 'routes',
   '/community': 'community',
-  '/community.html': 'community',
   '/news': 'news',
-  '/news.html': 'news',
   '/training-plans': 'trainingPlans',
-  '/training-plans.html': 'trainingPlans',
   '/training-plans/beginner-indoor': 'beginnerIndoorPlan',
   '/training-plans/beginner-road': 'beginnerRoadPlan',
   '/training-plans/intermediate-indoor': 'intermediateIndoorPlan',
   '/training-plans/intermediate-road': 'intermediateRoadPlan',
   '/road': 'road',
-  '/road.html': 'road',
   '/track': 'track',
-  '/track.html': 'track',
   '/mtb': 'mtb',
-  '/mtb.html': 'mtb',
   '/gravel': 'gravel',
-  '/gravel.html': 'gravel',
   '/cyclocross': 'cyclocross',
-  '/cyclocross.html': 'cyclocross',
   '/bmx': 'bmx',
-  '/bmx.html': 'bmx',
 };
