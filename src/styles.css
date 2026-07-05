@@ -134,10 +134,11 @@ section{ position:relative; }
 }
 .circuit-track{
   /* Solid trace, always fully drawn — the gradient just gives the metal
-     some depth instead of a flat, single-tone line. */
-  filter:
-    drop-shadow(0 0 5px rgba(56,189,248,0.24))
-    drop-shadow(0 0 14px rgba(56,189,248,0.09));
+     some depth instead of a flat, single-tone line.
+     Single, modest-radius drop-shadow: each stacked drop-shadow is a full
+     blur pass over this element's whole (multi-thousand-pixel-tall) box,
+     so piling several on top of each other is what made scrolling janky. */
+  filter:drop-shadow(0 0 6px rgba(56,189,248,0.2));
 }
 .circuit-traces-left .circuit-track{ stroke:url(#circuitGradLeft); }
 .circuit-traces-right .circuit-track{ stroke:url(#circuitGradRight); }
@@ -179,19 +180,11 @@ section{ position:relative; }
 }
 .circuit-traces-left .circuit-glow{
   stroke:var(--accent2);
-  filter:
-    drop-shadow(0 0 4px #fff)
-    drop-shadow(0 0 12px var(--accent2))
-    drop-shadow(0 0 26px var(--accent2))
-    drop-shadow(0 0 46px var(--accent2));
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 10px var(--accent2));
 }
 .circuit-traces-right .circuit-glow{
   stroke:var(--accent);
-  filter:
-    drop-shadow(0 0 4px #fff)
-    drop-shadow(0 0 12px var(--accent))
-    drop-shadow(0 0 26px var(--accent))
-    drop-shadow(0 0 46px var(--accent));
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 10px var(--accent));
 }
 /* Stagger each channel's pulse so all four don't line up at the same height,
    more like a multi-lead monitor than one signal repeated four times. */
