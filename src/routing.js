@@ -1,11 +1,11 @@
-const DEFAULT_BASE_PATH = '/RefactorCC';
+const DEFAULT_BASE_PATH = '';
 
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? DEFAULT_BASE_PATH;
 
 export function normalizePath(pathname) {
   const base = BASE_PATH.replace(/\/$/, '');
   let path = pathname;
-  if (base && path.startsWith(base)) {
+  while (base && path.startsWith(base)) {
     path = path.slice(base.length) || '/';
   }
   return path || '/';
@@ -20,7 +20,8 @@ export function pathFor(target) {
 
 export function hrefFor(file) {
   const base = BASE_PATH.replace(/\/$/, '');
-  return `${base}${pathFor(file)}`;
+  const path = pathFor(file);
+  return base && path.startsWith(`${base}/`) ? path : `${base}${path}`;
 }
 
 function shouldPrefixPath(value) {

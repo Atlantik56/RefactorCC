@@ -1,4 +1,4 @@
-const repositoryName = 'RefactorCC';
+const repositoryName = 'VeloCore';
 const defaultProductionBasePath = `/${repositoryName}`;
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH;
 const basePath = configuredBasePath ?? (process.env.NODE_ENV === 'production' ? defaultProductionBasePath : '');
