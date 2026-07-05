@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { hrefFor } from './routing.js';
+import { applyBasePathToHtml, hrefFor } from './routing.js';
 import { sanitizePageHtml } from './security.js';
 import { useDocumentMeta, useHashScroll, useInternalNavigation, usePageEffects } from './pageEffects.js';
 
@@ -122,10 +122,6 @@ function Footer() {
         </div>
         <div className="footer-bottom">
           <p>© 2026 VeloCore. Все передачи включены.</p>
-          <div className="socials">
-            <a href="#" aria-label="Strava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M9 3 15 14h-4l4 7-10-13h4L9 3Z" strokeLinejoin="round" /></svg></a>
-            <a href="#" aria-label="Garmin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><line x1="12" y1="2" x2="12" y2="5" /><line x1="12" y1="19" x2="12" y2="22" /><line x1="2" y1="12" x2="5" y2="12" /><line x1="19" y1="12" x2="22" y2="12" /></svg></a>
-          </div>
         </div>
       </div>
     </footer>
@@ -174,7 +170,7 @@ function CircuitTraceLayer() {
 export default function SitePage({ page }) {
   const pathname = usePathname();
   const router = useRouter();
-  const safeHtml = useMemo(() => sanitizePageHtml(page.html), [page.html]);
+  const safeHtml = useMemo(() => applyBasePathToHtml(sanitizePageHtml(page.html)), [page.html]);
   useDocumentMeta(page);
   useHashScroll(page.key, pathname);
   useInternalNavigation(router);

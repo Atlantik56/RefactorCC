@@ -721,14 +721,6 @@ footer{ padding:60px 0 34px; }
   padding-top:26px; flex-wrap:wrap; gap:14px;
 }
 .footer-bottom p{ font-size:12.5px; color:var(--text-dim-2); font-family:'JetBrains Mono', monospace; }
-.socials{ display:flex; gap:14px; }
-.socials a{
-  width:36px; height:36px; border:1px solid var(--line-strong); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  transition:background .25s, border-color .25s, transform .25s;
-}
-.socials a:hover{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); transform:translateY(-3px); }
-.socials svg{ width:16px; height:16px; }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }

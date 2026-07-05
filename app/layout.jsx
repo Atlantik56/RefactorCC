@@ -14,14 +14,14 @@ const csp = [
 ].join('; ');
 
 export const metadata = {
-  metadataBase: new URL('https://atlantik56.github.io'),
+  metadataBase: new URL('https://atlantik56.github.io/VeloCore/'),
   title: 'VeloCore — Велоспорт без компромиссов',
   description: 'VeloCore — статический сайт велосипедного клуба с дисциплинами, маршрутами, профилями высот и тренировочным CTA.',
   openGraph: {
     type: 'website',
     title: 'VeloCore — Велоспорт без компромиссов',
     description: 'Дисциплины, маршруты с профилем высот и сообщество райдеров для сезона 2026.',
-    images: ['/assets/kit-showcase-1.png'],
+    images: ['assets/kit-showcase-1.png'],
   },
 };
 

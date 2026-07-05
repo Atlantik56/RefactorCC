@@ -5,12 +5,13 @@
   <a href="README.ru.md"><img alt="Русский" src="https://img.shields.io/badge/README-Русский-dc2626?style=for-the-badge"></a>
 </p>
 
-VeloCore — промо-сайт велосипедного клуба на Next.js static export. Проект сохраняет исходное визуальное направление и локальные изображения, но теперь использует App Router для деплоя на GitHub Pages.
+VeloCore — сайт велосипедного и IT-клуба на Next.js static export. Проект использует App Router, локальные визуальные ассеты, clean routes и workflow деплоя на GitHub Pages.
 
 ## Текущее состояние
 
 - Основная ветка: `main`
-- Production: домен VeloCore будет подключён отдельно
+- Репозиторий: `https://github.com/Atlantik56/VeloCore`
+- Production: `https://atlantik56.github.io/VeloCore/`
 - Деплой: GitHub Actions на GitHub Pages
 - Frontend: Next.js App Router static export
 - Backend: пока не добавлен; формы присоединения работают как клиентское демо
@@ -33,6 +34,10 @@ VeloCore — промо-сайт велосипедного клуба на Next
 - `/routes` — каталог маршрутов
 - `/community` — страница сообщества
 - `/training-plans` — тренировочные планы
+- `/training-plans/beginner-indoor` — подробный indoor-план для новичка
+- `/training-plans/beginner-road` — подробный road-план для новичка
+- `/training-plans/intermediate-indoor` — подробный indoor-план среднего уровня
+- `/training-plans/intermediate-road` — подробный road-план среднего уровня
 - `/road` — шоссе
 - `/track` — трек
 - `/mtb` — маунтинбайк
@@ -80,18 +85,14 @@ pnpm run build
 
 Готовая production-версия появится в папке `out/`.
 
-## Просмотр production-сборки
-
-```bash
-pnpm run preview
-```
-
 ## Оптимизация
 
 Production-сборка настроена в `next.config.mjs`:
 
 - включён static export через `output: 'export'`
-- deploy base path настраивается через `NEXT_PUBLIC_BASE_PATH`, по умолчанию сайт собирается в корень
+- deploy base path настраивается через `NEXT_PUBLIC_BASE_PATH`
+- GitHub Pages workflow собирает сайт с `NEXT_PUBLIC_BASE_PATH=/VeloCore`
+- локальная сборка по умолчанию идёт в корень для проверки под custom domain или локальный хостинг
 - source map отключены для production
 - используются стандартные production-оптимизации Next
 - ассеты остаются локально в `public/assets`
@@ -113,6 +114,7 @@ Production-сборка настроена в `next.config.mjs`:
 ## Заметки по безопасности
 
 - HTML страниц проходит санитайзер перед вставкой в клиентский shell.
+- Внутренние ссылки внутри санитизированного HTML переписываются через настроенный base path.
 - Content Security Policy задаётся из Next layout.
 - Подписи карусели проходят allowlist-санитайзер.
 - Анимация дорожек кэширует геометрию и ставится на паузу в скрытой вкладке.
