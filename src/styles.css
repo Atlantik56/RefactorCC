@@ -23,7 +23,7 @@
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth; scroll-padding-top:96px;}
 body{
   background:var(--bg);
   color:var(--text);
@@ -133,111 +133,100 @@ section{ position:relative; }
   vector-effect:non-scaling-stroke;
 }
 .circuit-track{
+  /* Solid trace, always fully drawn — the gradient just gives the metal
+     some depth instead of a flat, single-tone line. */
   filter:
-    drop-shadow(0 0 5px rgba(56,189,248,0.22))
-    drop-shadow(0 0 14px rgba(56,189,248,0.08));
+    drop-shadow(0 0 5px rgba(56,189,248,0.24))
+    drop-shadow(0 0 14px rgba(56,189,248,0.09));
 }
+.circuit-traces-left .circuit-track{ stroke:url(#circuitGradLeft); }
+.circuit-traces-right .circuit-track{ stroke:url(#circuitGradRight); }
 .circuit-branch{
   stroke-width:1.1;
   opacity:0.52;
 }
 .track-b,
-.track-d{ opacity:0.58; }
+.track-d{ opacity:0.6; }
 .circuit-pads circle{
   fill:var(--bg);
   stroke:currentColor;
   stroke-width:1.5;
   vector-effect:non-scaling-stroke;
   filter:drop-shadow(0 0 5px rgba(56,189,248,0.32));
+  transform-box:fill-box;
+  transform-origin:center;
   animation:padPulse 3.6s ease-in-out infinite;
 }
 .circuit-pads circle:nth-child(2n){ animation-delay:.8s; }
-.circuit-pads circle:nth-child(3n){ animation-delay:1.6s; }
-.circuit-spark{
-  position:absolute;
-  left:0;
-  top:0;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:radial-gradient(circle, #ffffff 0 18%, var(--accent) 36%, rgba(56,189,248,0.1) 72%);
-  box-shadow:
-    0 0 4px rgba(255,255,255,0.95),
-    0 0 8px rgba(56,189,248,0.95),
-    0 0 22px rgba(56,189,248,0.76),
-    0 0 44px rgba(56,189,248,0.38);
-  transform:translate(-50%, -50%);
-  transition:transform .34s cubic-bezier(.2,.72,.22,1);
-  will-change:transform;
-  animation:signalPulse 1.8s ease-in-out infinite;
+.circuit-pads circle:nth-child(3n){ animation-delay:1.6s; fill:none; }
+
+/* Monitor "heartbeat" cursor: a <use> copy of the same solid trace, lit up
+   for a short stretch of its length and positioned with stroke-dashoffset —
+   the exact technique cardiac monitors use to sweep a bright point down a
+   trace. Position is driven purely by --scroll-progress (0 at the top of the
+   page, 1 at the bottom), so the pulse tracks the reader's place on the page
+   with zero JS per frame. --scan-len (the path's real length) is measured
+   once on mount, see usePageEffects in pageEffects.js. */
+.circuit-glow{
+  fill:none;
+  stroke-linecap:round;
+  stroke-width:3.4;
+  stroke-dasharray:90 4000;
+  stroke-dashoffset:calc(-1 * var(--scroll-progress, 0) * var(--scan-len, 1600) + var(--scan-phase, 0));
+  transition:stroke-dashoffset .2s linear;
+  vector-effect:non-scaling-stroke;
+  pointer-events:none;
 }
-.circuit-spark::before,
-.circuit-spark::after{
-  content:"";
-  position:absolute;
-  top:50%;
-  right:50%;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg, transparent, rgba(56,189,248,0.82));
-  transform:translateY(-50%);
+.circuit-traces-left .circuit-glow{
+  stroke:var(--accent2);
+  filter:
+    drop-shadow(0 0 4px #fff)
+    drop-shadow(0 0 12px var(--accent2))
+    drop-shadow(0 0 26px var(--accent2))
+    drop-shadow(0 0 46px var(--accent2));
 }
-.circuit-spark::before{ width:58px; }
-.circuit-spark::after{
-  left:50%;
-  right:auto;
-  width:34px;
-  background:linear-gradient(90deg, rgba(56,189,248,0.82), transparent);
+.circuit-traces-right .circuit-glow{
+  stroke:var(--accent);
+  filter:
+    drop-shadow(0 0 4px #fff)
+    drop-shadow(0 0 12px var(--accent))
+    drop-shadow(0 0 26px var(--accent))
+    drop-shadow(0 0 46px var(--accent));
 }
-.circuit-spark-right{
-  background:radial-gradient(circle, #ffffff 0 18%, var(--accent2) 36%, rgba(125,211,252,0.1) 72%);
-  box-shadow:
-    0 0 4px rgba(255,255,255,0.95),
-    0 0 8px rgba(125,211,252,0.95),
-    0 0 22px rgba(125,211,252,0.72),
-    0 0 44px rgba(56,189,248,0.34);
-}
-.circuit-spark-right::before{
-  background:linear-gradient(90deg, transparent, rgba(125,211,252,0.82));
-}
-.circuit-spark-right::after{
-  background:linear-gradient(90deg, rgba(125,211,252,0.82), transparent);
-}
-@keyframes circuitFlow{
-  to{ stroke-dashoffset:-76; }
-}
-@keyframes signalPulse{
-  0%,100%{ opacity:0.74; filter:brightness(0.92); }
-  50%{ opacity:1; filter:brightness(1.18); }
-}
+/* Stagger each channel's pulse so all four don't line up at the same height,
+   more like a multi-lead monitor than one signal repeated four times. */
+.glow-b{ --scan-phase:-360; }
+.glow-c{ --scan-phase:-140; }
+.glow-d{ --scan-phase:-520; }
+
 @keyframes padPulse{
-  0%,100%{ opacity:0.46; }
-  50%{ opacity:0.95; }
+  0%,100%{ opacity:0.46; transform:scale(0.88); }
+  50%{ opacity:0.95; transform:scale(1.12); }
 }
 @media(max-width:900px){
   .circuit-trace-layer{ opacity:0.42; }
   .circuit-traces{ width:31vw; min-width:112px; }
-  .circuit-traces-right,
-  .circuit-spark-right{ opacity:0.44; }
+  .circuit-traces-right{ opacity:0.44; }
 }
 @media(max-width:560px){
   .circuit-trace-layer{ opacity:0.3; }
   .circuit-traces{ min-width:94px; }
-  .circuit-spark{
-    width:8px;
-    height:8px;
-  }
-  .circuit-spark::before{ width:28px; }
-  .circuit-spark::after{ width:18px; }
+  .circuit-glow{ stroke-width:2px; stroke-dasharray:70 4000; }
 }
 
 /* ---------- Nav ---------- */
 header{
   position:fixed; top:3px; left:0; right:0; z-index:900;
   padding:20px 0;
-  transition: background .35s var(--ease), padding .35s var(--ease), border-color .35s var(--ease);
+  transition: background .35s var(--ease), padding .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease);
   border-bottom:1px solid transparent;
 }
+/* Once the page is scrolled to its last header-height worth of content,
+   the fixed header would sit on top of whatever heading lands there
+   (e.g. the closing CTA) with no way to scroll further to reveal it.
+   Sliding the header off-screen for that last stretch keeps it out of the way. */
+header.at-bottom{ transform:translateY(-100%); }
+header.at-bottom:focus-within{ transform:translateY(0); }
 header.scrolled{
   background:rgba(18,22,29,0.85);
   backdrop-filter:blur(10px);
@@ -324,6 +313,20 @@ nav.wrap{
 .btn-ghost svg, .btn-primary svg{ width:14px; height:14px; }
 
 .nav-toggle{ display:none; background:none; border:none; color:var(--text); cursor:pointer; }
+.nav-toggle .bar{ transition:transform .3s var(--ease), opacity .2s var(--ease); transform-origin:center; }
+.nav-toggle.open .bar-1{ transform:translateY(6px) rotate(45deg); }
+.nav-toggle.open .bar-2{ opacity:0; }
+.nav-toggle.open .bar-3{ transform:translateY(-6px) rotate(-45deg); }
+
+.nav-backdrop{
+  display:none;
+  position:fixed; inset:0; z-index:940;
+  background:rgba(10,13,18,0.6);
+  backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px);
+  border:none; padding:0; cursor:default;
+  opacity:0; transition:opacity .35s var(--ease);
+  pointer-events:none;
+}
 
 /* ---------- Hero ---------- */
 .hero{
@@ -672,6 +675,11 @@ section.pad{ padding:110px 0; }
   border-bottom:1px solid var(--line);
   text-align:center;
 }
+/* The footer's own top padding/border already separate it from the CTA, so
+   the CTA doesn't need a full section-level bottom gutter on top of that.
+   Trimming it also shortens the page's very last stretch, working together
+   with header.at-bottom so the closing heading isn't left under the header. */
+.cta.pad{ padding-bottom:20px; }
 .cta h2{ font-size:clamp(34px,6vw,68px); max-width:16ch; margin:0 auto 18px; }
 .cta p{ color:var(--text-dim); max-width:44ch; margin:0 auto 36px; }
 .cta-form{
@@ -724,9 +732,7 @@ footer{ padding:60px 0 34px; }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
-  .circuit-track,
   .circuit-pads circle{ animation:none !important; }
-  .circuit-spark{ transition:none; }
 }
 
 /* Mobile nav */
@@ -741,6 +747,7 @@ footer{ padding:60px 0 34px; }
   .nav-links.open{ right:0; }
   .nav-toggle{ display:block; z-index:960; }
   .hero-ctas .btn-ghost{ display:none; }
+  body.nav-open .nav-backdrop{ display:block; opacity:1; pointer-events:auto; }
 }
 
 /* =======================================================

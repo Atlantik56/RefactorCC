@@ -62,102 +62,40 @@ export function usePageEffects(pageKey) {
     const progressBar = document.querySelector('#race-progress span');
     const root = document.documentElement;
     const header = document.getElementById('site-header');
-    const circuitLayer = document.querySelector('.circuit-trace-layer');
-    const circuitSparks = [
-      {
-        path: document.querySelector('.circuit-spark-path-left'),
-        spark: document.querySelector('.circuit-spark-left'),
-        direction: 1,
-        offset: 0,
-      },
-      {
-        path: document.querySelector('.circuit-spark-path-right'),
-        spark: document.querySelector('.circuit-spark-right'),
-        direction: 1,
-        offset: 0.46,
-      },
-    ];
-    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
-    let latestScrollProgress = 0;
-    let circuitAnimationFrame = null;
-    let circuitAnimationStart = null;
-    let circuitGeometryDirty = true;
 
-    const updateCircuitGeometry = () => {
-      circuitSparks.forEach((sparkConfig) => {
-        if (!sparkConfig.path || !circuitLayer) return;
-        const svg = sparkConfig.path.ownerSVGElement;
-        const viewBox = svg?.viewBox?.baseVal;
-        if (!svg || !viewBox?.width || !viewBox?.height) return;
-
-        sparkConfig.pathLength = sparkConfig.path.getTotalLength();
-        sparkConfig.viewBox = viewBox;
-        sparkConfig.svgRect = svg.getBoundingClientRect();
-        sparkConfig.layerRect = circuitLayer.getBoundingClientRect();
-      });
-      circuitGeometryDirty = false;
-    };
-
-    const updateCircuitSpark = ({ path, spark, direction }, progress) => {
-      if (!path || !spark || !circuitLayer) return;
-      const svg = path.ownerSVGElement;
-      if (circuitGeometryDirty) updateCircuitGeometry();
-
-      const { pathLength, viewBox, svgRect, layerRect } = circuitSparks.find((item) => item.path === path) || {};
-      if (!svg || !pathLength || !viewBox?.width || !viewBox?.height || !svgRect || !layerRect) return;
-
-      const sparkProgress = direction === -1 ? 1 - progress : progress;
-      const point = path.getPointAtLength(pathLength * sparkProgress);
-      const x = svgRect.left - layerRect.left + (point.x / viewBox.width) * svgRect.width;
-      const y = svgRect.top - layerRect.top + (point.y / viewBox.height) * svgRect.height;
-
-      spark.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-    };
+    // The "heartbeat" pulse riding each trace is a <use> overlay whose
+    // stroke-dashoffset is driven entirely by CSS (--scroll-progress), so the
+    // only thing JS has to do is tell each overlay how long its own path is —
+    // once, since these paths are static and their length in path-units never
+    // changes with viewport size. No per-frame measurement or rAF loop needed.
+    document.querySelectorAll('.circuit-glow[data-track]').forEach((glow) => {
+      const path = document.getElementById(`track-${glow.dataset.track}-path`);
+      if (path) glow.style.setProperty('--scan-len', path.getTotalLength());
+    });
 
     const updateProgress = () => {
       const scrollEl = document.scrollingElement || document.documentElement;
-      const denom = scrollEl.scrollHeight - scrollEl.clientHeight;
+      // Use body's own content height, not scrollEl.scrollHeight: the circuit layer
+      // below is an absolutely-positioned decorative overlay anchored to the initial
+      // containing block, so it inflates document.documentElement.scrollHeight once
+      // sized. Feeding that inflated value back into its own height would create a
+      // runaway feedback loop on every scroll/resize tick.
+      const contentHeight = document.body.scrollHeight;
+      const denom = contentHeight - scrollEl.clientHeight;
       const scrolled = denom > 0 ? scrollEl.scrollTop / denom : 0;
-      latestScrollProgress = scrolled;
       root.style.setProperty('--scroll-progress', scrolled.toFixed(4));
-      root.style.setProperty('--circuit-layer-height', `${scrollEl.scrollHeight}px`);
-      circuitGeometryDirty = true;
-      if (prefersReducedMotion) requestAnimationFrame(() => {
-        circuitSparks.forEach((sparkConfig) => updateCircuitSpark(sparkConfig, scrolled));
-      });
+      root.style.setProperty('--circuit-layer-height', `${contentHeight}px`);
       if (progressBar) progressBar.style.width = `${scrolled * 100}%`;
-    };
-
-    const animateCircuitSignal = (timestamp) => {
-      if (circuitAnimationStart === null) circuitAnimationStart = timestamp;
-      const elapsed = timestamp - circuitAnimationStart;
-      const signalProgress = (elapsed / 9000 + latestScrollProgress * 0.28) % 1;
-
-      circuitSparks.forEach((sparkConfig) => {
-        updateCircuitSpark(sparkConfig, (signalProgress + sparkConfig.offset) % 1);
-      });
-      circuitAnimationFrame = requestAnimationFrame(animateCircuitSignal);
-    };
-
-    const startCircuitSignal = () => {
-      if (prefersReducedMotion || circuitAnimationFrame) return;
-      circuitAnimationFrame = requestAnimationFrame(animateCircuitSignal);
-    };
-
-    const stopCircuitSignal = () => {
-      if (!circuitAnimationFrame) return;
-      cancelAnimationFrame(circuitAnimationFrame);
-      circuitAnimationFrame = null;
-    };
-
-    const onVisibilityChange = () => {
-      if (document.hidden) stopCircuitSignal();
-      else startCircuitSignal();
     };
 
     const updateHeader = () => {
       if (!header) return;
       header.classList.toggle('scrolled', window.scrollY > 40);
+      // Content below the closing heading (CTA copy length, footer) varies a bit
+      // page to page, so this clears with room to spare rather than tracking the
+      // header's own height exactly.
+      const distanceFromBottom = document.body.scrollHeight - (window.scrollY + window.innerHeight);
+      header.classList.toggle('at-bottom', distanceFromBottom < header.offsetHeight * 2.5);
     };
 
     let scrollTicking = false;
@@ -174,11 +112,9 @@ export function usePageEffects(pageKey) {
     document.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     window.addEventListener('load', onScroll);
-    document.addEventListener('visibilitychange', onVisibilityChange);
     const resizeObserver = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(onScroll);
     resizeObserver?.observe(document.body);
     updateProgress();
-    startCircuitSignal();
     updateHeader();
 
     document.querySelectorAll('img').forEach((img) => {
@@ -309,9 +245,7 @@ export function usePageEffects(pageKey) {
       document.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
       window.removeEventListener('load', onScroll);
-      document.removeEventListener('visibilitychange', onVisibilityChange);
       resizeObserver?.disconnect();
-      stopCircuitSignal();
       root.style.removeProperty('--scroll-progress');
       root.style.removeProperty('--circuit-layer-height');
       revealObserver.disconnect();

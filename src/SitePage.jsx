@@ -67,7 +67,7 @@ function Header({ activePage }) {
           <a href={hrefFor('/#join')} onClick={() => setOpen(false)}>Контакты</a>
         </div>
         <button
-          className="nav-toggle"
+          className={`nav-toggle${open ? ' open' : ''}`}
           id="navToggle"
           type="button"
           aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
@@ -76,13 +76,14 @@ function Header({ activePage }) {
           onClick={() => setOpen((value) => !value)}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
+            <line className="bar bar-1" x1="3" y1="6" x2="21" y2="6" />
+            <line className="bar bar-2" x1="3" y1="12" x2="21" y2="12" />
+            <line className="bar bar-3" x1="3" y1="18" x2="21" y2="18" />
           </svg>
         </button>
         <a href={hrefFor('/#join')} className="btn btn-primary" style={{ marginLeft: 16 }}>Присоединиться</a>
       </nav>
+      <button type="button" className="nav-backdrop" aria-hidden="true" tabIndex={-1} onClick={() => setOpen(false)} />
     </header>
   );
 }
@@ -132,8 +133,15 @@ function CircuitTraceLayer() {
   return (
     <div className="circuit-trace-layer" aria-hidden="true">
       <svg className="circuit-traces circuit-traces-left" viewBox="0 0 260 1200" preserveAspectRatio="none" focusable="false">
-        <path className="circuit-track circuit-spark-path circuit-spark-path-left track-a" d="M26 0V110H92V224H48V354H126V496H72V640H154V774H106V898H178V1050H132V1200" />
-        <path className="circuit-track track-b" d="M146 0V72H206V190H164V314H226V458H170V590H228V732H188V842H232V1008H196V1200" />
+        <defs>
+          <linearGradient id="circuitGradLeft" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" style={{ stopColor: 'var(--accent)', stopOpacity: 0.2 }} />
+            <stop offset="50%" style={{ stopColor: 'var(--accent2)', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: 'var(--accent)', stopOpacity: 0.2 }} />
+          </linearGradient>
+        </defs>
+        <path id="track-a-path" className="circuit-track track-a" d="M26 0V110H92V224H48V354H126V496H72V640H154V774H106V898H178V1050H132V1200" />
+        <path id="track-b-path" className="circuit-track track-b" d="M146 0V72H206V190H164V314H226V458H170V590H228V732H188V842H232V1008H196V1200" />
         <path className="circuit-branch branch-a" d="M48 354H18M126 496H210M72 640H30M178 1050H236" />
         <g className="circuit-pads">
           <circle cx="26" cy="110" r="5" />
@@ -145,10 +153,21 @@ function CircuitTraceLayer() {
           <circle cx="226" cy="458" r="5" />
           <circle cx="232" cy="842" r="4" />
         </g>
+        {/* Bright pulse riding the solid trace, position driven by --scroll-progress
+            (see .circuit-glow in styles.css) — the monitor "heartbeat" cursor. */}
+        <use href="#track-a-path" className="circuit-glow glow-a" data-track="a" />
+        <use href="#track-b-path" className="circuit-glow glow-b" data-track="b" />
       </svg>
       <svg className="circuit-traces circuit-traces-right" viewBox="0 0 260 1200" preserveAspectRatio="none" focusable="false">
-        <path className="circuit-track circuit-spark-path circuit-spark-path-right track-c" d="M218 0V96H164V216H214V338H128V488H190V616H104V762H158V884H82V1018H128V1200" />
-        <path className="circuit-track track-d" d="M92 0V150H42V282H96V424H34V546H88V696H28V830H70V964H32V1200" />
+        <defs>
+          <linearGradient id="circuitGradRight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" style={{ stopColor: 'var(--accent2)', stopOpacity: 0.2 }} />
+            <stop offset="50%" style={{ stopColor: 'var(--accent)', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: 'var(--accent2)', stopOpacity: 0.2 }} />
+          </linearGradient>
+        </defs>
+        <path id="track-c-path" className="circuit-track track-c" d="M218 0V96H164V216H214V338H128V488H190V616H104V762H158V884H82V1018H128V1200" />
+        <path id="track-d-path" className="circuit-track track-d" d="M92 0V150H42V282H96V424H34V546H88V696H28V830H70V964H32V1200" />
         <path className="circuit-branch branch-b" d="M214 338H242M128 488H54M104 762H230M82 1018H18" />
         <g className="circuit-pads">
           <circle cx="218" cy="96" r="5" />
@@ -160,9 +179,9 @@ function CircuitTraceLayer() {
           <circle cx="34" cy="546" r="5" />
           <circle cx="70" cy="964" r="4" />
         </g>
+        <use href="#track-c-path" className="circuit-glow glow-c" data-track="c" />
+        <use href="#track-d-path" className="circuit-glow glow-d" data-track="d" />
       </svg>
-      <span className="circuit-spark circuit-spark-left" />
-      <span className="circuit-spark circuit-spark-right" />
     </div>
   );
 }
