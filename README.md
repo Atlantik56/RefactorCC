@@ -85,6 +85,18 @@ pnpm run build
 
 The production output is written to `out/`.
 
+## Docker
+
+Build and run the static site container:
+
+```bash
+docker compose up --build -d
+```
+
+The site will be available at `http://localhost:8080/`.
+
+The image builds the Next.js static export in a Node stage and serves `out/` from Nginx.
+
 ## Optimization
 
 The production build is configured in `next.config.mjs`:

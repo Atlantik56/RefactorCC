@@ -1,0 +1,11 @@
+.git
+.github
+.next
+dist
+node_modules
+out
+.DS_Store
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*

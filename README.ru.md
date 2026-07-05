@@ -85,6 +85,18 @@ pnpm run build
 
 Готовая production-версия появится в папке `out/`.
 
+## Docker
+
+Собрать и запустить контейнер со статическим сайтом:
+
+```bash
+docker compose up --build -d
+```
+
+Сайт будет доступен на `http://localhost:8080/`.
+
+Образ собирает Next.js static export в Node stage и отдаёт `out/` через Nginx.
+
 ## Оптимизация
 
 Production-сборка настроена в `next.config.mjs`:
