@@ -163,7 +163,7 @@ export function usePageEffects(pageKey) {
         const emailInput = form.querySelector('input[type="email"]');
         const note = form.parentElement?.querySelector('.cta-note');
         if (note) {
-          note.textContent = `Готово — план для ${emailInput?.value || 'вас'} уже летит на почту.`;
+          note.textContent = `Готово — план для ${emailInput?.value || 'вас'} уже едет на почту.`;
           note.classList.add('ok');
         }
         form.reset();

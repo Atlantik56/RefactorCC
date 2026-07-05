@@ -107,7 +107,6 @@ export const pages = {
             <span class="idx mono">D—01</span>
           </div>
           <div class="body">
-            <svg aria-hidden="true" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M5.5 17.5 10 8h5l3.5 9.5"/><path d="M10 8 12.5 12"/></svg>
             <h3>Шоссе</h3>
             <p>Групповые заезды, темповые тренировки и гонки на выносливость по асфальту.</p>
             <span class="tag">Endurance</span>
@@ -122,7 +121,6 @@ export const pages = {
             <span class="idx mono">D—02</span>
           </div>
           <div class="body">
-            <svg aria-hidden="true" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="12" rx="9" ry="5"/><ellipse cx="12" cy="12" rx="5" ry="2.6"/></svg>
             <h3>Трек</h3>
             <p>Спринты на велодроме, точная тактика и работа с фиксированной передачей.</p>
             <span class="tag">Sprint</span>
@@ -137,7 +135,6 @@ export const pages = {
             <span class="idx mono">D—03</span>
           </div>
           <div class="body">
-            <svg aria-hidden="true" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M5.5 17.5 9 9l4 3-2 5.5" stroke-linejoin="round"/><path d="M13 12 16 6" /></svg>
             <h3>Маунтинбайк</h3>
             <p>Кросс-кантри и эндуро по лесным тропам — техника и контроль скорости.</p>
             <span class="tag">Terrain</span>
@@ -152,7 +149,6 @@ export const pages = {
             <span class="idx mono">D—04</span>
           </div>
           <div class="body">
-            <svg aria-hidden="true" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M5.5 17.5 9.5 8h4l4.5 9.5" stroke-dasharray="1.5 2"/></svg>
             <h3>Гравел</h3>
             <p>Смешанное покрытие, дальние дистанции и приключенческий формат.</p>
             <span class="tag">Adventure</span>
@@ -167,7 +163,6 @@ export const pages = {
             <span class="idx mono">D—05</span>
           </div>
           <div class="body">
-            <svg aria-hidden="true" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M5.5 17.5 8 11l3 1 1-4 4.5 1 2 8.5" /></svg>
             <h3>Циклокросс</h3>
             <p>Короткие круги, грязь, барьеры и взрывная выносливость поздней осенью.</p>
             <span class="tag">Grit</span>
@@ -182,7 +177,6 @@ export const pages = {
             <span class="idx mono">D—06</span>
           </div>
           <div class="body">
-            <svg aria-hidden="true" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M6 17 11 8h5l-3.5 9" /><path d="M11 8h-2" /></svg>
             <h3>BMX</h3>
             <p>Прыжки, рампы и контроль байка на пределе — дисциплина для смелых.</p>
             <span class="tag">Airtime</span>
