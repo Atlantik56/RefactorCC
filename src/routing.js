@@ -1,4 +1,6 @@
-export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const DEFAULT_BASE_PATH = '/RefactorCC';
+
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? DEFAULT_BASE_PATH;
 
 export function normalizePath(pathname) {
   const base = BASE_PATH.replace(/\/$/, '');
