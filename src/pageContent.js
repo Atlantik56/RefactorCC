@@ -1406,6 +1406,10 @@ export const pages = {
 
         <div class="training-plan-grid stagger">
           <article class="training-plan-card reveal">
+            <div class="plan-visual">
+              <img src="assets/wikimedia/cyclists-on-the-valley-preferred-cycling-center-track.jpg" alt="Велосипедисты тренируются на велодроме в контролируемом темпе" loading="lazy">
+              <span>Indoor base · smart trainer</span>
+            </div>
             <div class="plan-head">
               <span class="idx mono">PLAN 01</span>
               <span class="tag">Beginner · Indoor</span>
@@ -1427,6 +1431,10 @@ export const pages = {
           </article>
 
           <article class="training-plan-card reveal">
+            <div class="plan-visual">
+              <img src="assets/wikimedia/cycle-sunset-road-photography.jpg" alt="Велосипедист едет по спокойной дороге на закате" loading="lazy">
+              <span>Road start · endurance</span>
+            </div>
             <div class="plan-head">
               <span class="idx mono">PLAN 02</span>
               <span class="tag">Beginner · Road</span>
@@ -1448,6 +1456,10 @@ export const pages = {
           </article>
 
           <article class="training-plan-card reveal">
+            <div class="plan-visual">
+              <img src="assets/wikimedia/cyclists-on-the-valley-preferred-cycling-center-track.jpg" alt="Группа велосипедистов выполняет интервальную работу на треке" loading="lazy">
+              <span>Power build · FTP / VO2</span>
+            </div>
             <div class="plan-head">
               <span class="idx mono">PLAN 03</span>
               <span class="tag">Intermediate · Indoor</span>
@@ -1469,6 +1481,10 @@ export const pages = {
           </article>
 
           <article class="training-plan-card reveal">
+            <div class="plan-visual">
+              <img src="assets/wikimedia/tdf-2022-tuzaguet-arri-re-du-peloton.jpg" alt="Пелотон шоссейных велосипедистов едет по дороге" loading="lazy">
+              <span>Road build · hills / group</span>
+            </div>
             <div class="plan-head">
               <span class="idx mono">PLAN 04</span>
               <span class="tag">Intermediate · Road</span>
